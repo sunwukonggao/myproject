@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="gao:war">
+    <output-path>$PROJECT_DIR$/gao/target</output-path>
+    <root id="archive" name="gao.war">
+      <element id="artifact" artifact-name="gao:war exploded" />
+    </root>
+  </artifact>
+</component>

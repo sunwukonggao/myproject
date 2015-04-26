@@ -1,0 +1,41 @@
+/* CSS Document */
+body {
+    margin: 0px;
+    font-size: 12px;
+    color: #333333;
+}
+
+th {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    color: #0080FF;
+    text-align: center;
+}
+
+a {
+    font-size: 14px;
+}
+
+.div_body {
+    background-color: #BAD8EF;
+    margin: auto;
+}
+
+.table_white {
+    background-color: #FFFFFF;
+    font-size: 14px;
+    color: #083772;
+}
+
+.table_gray {
+    background-color: #ECE9D8;
+    font-size: 14px;
+    color: #083772;
+}
+
+.td_name {
+    width: 48px;
+    height: 16px;
+    align: right;
+    valign: top;
+}

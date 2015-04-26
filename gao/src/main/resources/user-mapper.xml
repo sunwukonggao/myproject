@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.shop.gao.mapper.UserMapper">
+    <resultMap type="cn.shop.gao.domain.User" id="userresultMap">
+        <id property="id" column="id"/>
+        <result property="user_id" column="user_id"/>
+        <result property="passwd" column="passwd"/>
+        <result property="state" column="state"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="idcard" column="idcard"/>
+        <result property="birth" column="birth"/>
+        <result property="group_id" column="group_id"/>
+        <result property="academe_id" column="academe_id"/>
+    </resultMap>
+    <select id="getUser" resultType="list" resultMap="userresultMap">
+        <![CDATA[
+
+
+
+
+			select * from shop_user limit 10
+
+
+
+
+        ]]>
+    </select>
+    <select id="findUser" parameterType="User" resultType="User">
+        <![CDATA[
+
+
+
+			select * from shop_user where user_id=#{user_id} and passwd=#{passwd}
+
+
+
+
+        ]]>
+    </select>
+    <select id="getUserCount" resultType="int">
+        <![CDATA[
+
+
+
+
+			select count(*) from shop_user
+
+
+
+
+        ]]>
+    </select>
+</mapper>

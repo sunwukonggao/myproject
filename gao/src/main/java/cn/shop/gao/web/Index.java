@@ -1,0 +1,25 @@
+package cn.shop.gao.web;
+
+import cn.shop.gao.tools.ResultTypeEnum;
+import cn.shop.gao.annotation.Login;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class Index {
+
+    @Login(ResultTypeEnum.page)
+    @RequestMapping(value = "")
+    public ModelAndView index() {
+        return new ModelAndView("index");
+    }
+
+    @Login(ResultTypeEnum.page)
+    @RequestMapping(value = "/index")
+    public ModelAndView index1() {
+        return new ModelAndView("index");
+    }
+
+
+}
