@@ -7,14 +7,14 @@
        http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!-- 自动扫描 <context:component-scan base-package="cn.edu.bjtu.jsjjx" /> -->
+    <!-- 自动扫描 <context:component-scan base-package="cn.shop.gao" /> -->
 
     <!-- 启动spring注解,当自动扫描启动后,该配置可以去掉 <context:annotation-config /> -->
 
     <!-- 配置数据源属性文件 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close" p:driverClass="com.mysql.jdbc.Driver"
-          p:jdbcUrl="jdbc:mysql://localhost:3306/jsjjx?useUnicode=true&amp;characterEncoding=UTF-8"
+          p:jdbcUrl="jdbc:mysql://localhost:3306/gao?useUnicode=true&amp;characterEncoding=UTF-8"
           p:user="root" p:password="123456" p:maxPoolSize="40" p:minPoolSize="1"
           p:initialPoolSize="1" p:maxIdleTime="20"/>
 
@@ -78,6 +78,10 @@
             <bean class="net.rubyeye.xmemcached.transcoders.SerializingTranscoder"/>
         </property>
     </bean>
+    <!-- Use factory bean to build memcached client -->
+    <bean name="memcachedClient" factory-bean="memcachedClientBuilder"
+          factory-method="build" destroy-method="shutdown"/>
+    <!-- Jedis ConnectionFactory-->
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxTotal" value="30"/>
         <property name="maxIdle" value="10"/>
