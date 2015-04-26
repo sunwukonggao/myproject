@@ -2,12 +2,11 @@ package cn.shop.gao.service.impl;
 
 import cn.shop.gao.dao.GroupDao;
 import cn.shop.gao.dao.UserDao;
-import cn.shop.gao.dao.impl.UserGroupDao;
+import cn.shop.gao.dao.UserGroupDao;
 import cn.shop.gao.domain.User;
 import cn.shop.gao.service.UserService;
 import net.rubyeye.xmemcached.MemcachedClient;
 import net.rubyeye.xmemcached.exception.MemcachedException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -57,7 +56,7 @@ public class UserServiceImpl implements UserService {
     public GroupDao getGroupDao() {
         return groupDao;
     }
-    @Autowired
+    @Resource(name = "groupDaoimpl")
     public void setGroupDao(GroupDao groupDao) {
         this.groupDao = groupDao;
     }
@@ -65,7 +64,7 @@ public class UserServiceImpl implements UserService {
     public UserGroupDao getUserGroupDao() {
         return userGroupDao;
     }
-    @Autowired
+    @Resource(name = "userGroupDaoimpl")
     public void setUserGroupDao(UserGroupDao userGroupDao) {
         this.userGroupDao = userGroupDao;
     }
