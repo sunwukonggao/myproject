@@ -2,7 +2,6 @@
 // Base styles for various input types, form layouts, and states
 // -------------------------------------------------------------
 
-
 // GENERAL STYLES
 // --------------
 
@@ -42,8 +41,9 @@ input,
 button,
 select,
 textarea {
-  #font > .shorthand(@baseFontSize,normal,@baseLineHeight); // Set size, weight, line-height here
+  #font > .shorthand(@baseFontSize, normal, @baseLineHeight); // Set size, weight, line-height here
 }
+
 input,
 button,
 select,
@@ -75,6 +75,7 @@ select,
   border: 1px solid @inputBorder;
   .border-radius(@inputBorderRadius);
 }
+
 .uneditable-textarea {
   width: auto;
   height: auto;
@@ -102,6 +103,7 @@ input[type="radio"] {
   border: 0 \9; /* IE9 and down */
   .border-radius(0);
 }
+
 input[type="image"] {
   border: 0;
 }
@@ -165,8 +167,6 @@ input[type="hidden"] {
   display: none;
 }
 
-
-
 // CHECKBOXES & RADIOS
 // -------------------
 
@@ -176,6 +176,7 @@ input[type="hidden"] {
   min-height: 18px; // clear the floating input if there is no label text
   padding-left: 18px;
 }
+
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] {
   float: left;
@@ -197,29 +198,30 @@ input[type="hidden"] {
   margin-bottom: 0;
   vertical-align: middle;
 }
+
 .radio.inline + .radio.inline,
 .checkbox.inline + .checkbox.inline {
   margin-left: 10px; // space out consecutive inline controls
 }
-
-
 
 // FOCUS STATE
 // -----------
 
 input,
 textarea {
-  .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  .box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075));
   @transition: border linear .2s, box-shadow linear .2s;
   .transition(@transition);
 }
+
 input:focus,
 textarea:focus {
-  border-color: rgba(82,168,236,.8);
+  border-color: rgba(82, 168, 236, .8);
   outline: 0;
   outline: thin dotted \9; /* IE6-9 */
   .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");
 }
+
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus,
@@ -228,25 +230,40 @@ select:focus {
   .box-shadow(none); // override for file inputs
 }
 
-
-
 // INPUT SIZES
 // -----------
 
 // General classes for quick sizes
-.input-mini       { width: 60px; }
-.input-small      { width: 90px; }
-.input-medium     { width: 150px; }
-.input-large      { width: 210px; }
-.input-xlarge     { width: 270px; }
-.input-xxlarge    { width: 530px; }
+.input-mini {
+  width: 60px;
+}
+
+.input-small {
+  width: 90px;
+}
+
+.input-medium {
+  width: 150px;
+}
+
+.input-large {
+  width: 210px;
+}
+
+.input-xlarge {
+  width: 270px;
+}
+
+.input-xxlarge {
+  width: 530px;
+}
 
 // Grid style input sizes
 input[class*="span"],
 select[class*="span"],
 textarea[class*="span"],
 .uneditable-input[class*="span"],
-// Redeclare since the fluid row class is more specific
+  // Redeclare since the fluid row class is more specific
 .row-fluid input[class*="span"],
 .row-fluid select[class*="span"],
 .row-fluid textarea[class*="span"],
@@ -255,15 +272,10 @@ textarea[class*="span"],
   margin-left: 0;
 }
 
-
-
 // GRID SIZING FOR INPUTS
 // ----------------------
 
 #grid > .input (@gridColumnWidth, @gridGutterWidth);
-
-
-
 
 // DISABLED STATE
 // --------------
@@ -279,6 +291,7 @@ textarea[readonly] {
   background-color: @inputDisabledBackground;
   border-color: #ddd;
 }
+
 // Explicitly reset the colors here
 input[type="radio"][disabled],
 input[type="checkbox"][disabled],
@@ -287,9 +300,6 @@ input[type="checkbox"][readonly] {
   background-color: transparent;
 }
 
-
-
-
 // FORM FIELD FEEDBACK STATES
 // --------------------------
 
@@ -297,10 +307,12 @@ input[type="checkbox"][readonly] {
 .control-group.warning {
   .formFieldState(@warningText, @warningText, @warningBackground);
 }
+
 // Error
 .control-group.error {
   .formFieldState(@errorText, @errorText, @errorBackground);
 }
+
 // Success
 .control-group.success {
   .formFieldState(@successText, @successText, @successBackground);
@@ -318,8 +330,6 @@ select:focus:required:invalid {
     .box-shadow(0 0 6px lighten(#ee5f5b, 20%));
   }
 }
-
-
 
 // FORM ACTIONS
 // ------------
@@ -340,13 +350,11 @@ select:focus:required:invalid {
   cursor: not-allowed;
   background-color: @inputBackground;
   border-color: #eee;
-  .box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
+  .box-shadow(inset 0 1px 2px rgba(0, 0, 0, .025));
 }
 
 // Placeholder text gets special styles; can't be bundled together though for some reason
 .placeholder(@grayLight);
-
-
 
 // HELP TEXT
 // ---------
@@ -367,8 +375,6 @@ select:focus:required:invalid {
   vertical-align: middle;
   padding-left: 5px;
 }
-
-
 
 // INPUT GROUPS
 // ------------
@@ -417,6 +423,7 @@ select:focus:required:invalid {
     border-color: @green;
   }
 }
+
 .input-prepend {
   .add-on,
   .btn {
@@ -427,6 +434,7 @@ select:focus:required:invalid {
     .border-radius(@inputBorderRadius 0 0 @inputBorderRadius);
   }
 }
+
 .input-append {
   input,
   select,
@@ -442,6 +450,7 @@ select:focus:required:invalid {
     .border-radius(0 @inputBorderRadius @inputBorderRadius 0);
   }
 }
+
 // Remove all border-radius for inputs with both prepend and append
 .input-prepend.input-append {
   input,
@@ -461,8 +470,6 @@ select:focus:required:invalid {
   }
 }
 
-
-
 // SEARCH FORM
 // -----------
 
@@ -474,8 +481,6 @@ select:focus:required:invalid {
   margin-bottom: 0; // remove the default margin on all inputs
   .border-radius(14px);
 }
-
-
 
 // HORIZONTAL & VERTICAL FORMS
 // ---------------------------
@@ -502,10 +507,12 @@ select:focus:required:invalid {
     display: none;
   }
 }
+
 .form-search label,
 .form-inline label {
   display: inline-block;
 }
+
 // Remove margin for input-prepend/-append
 .form-search .input-append,
 .form-inline .input-append,
@@ -513,6 +520,7 @@ select:focus:required:invalid {
 .form-inline .input-prepend {
   margin-bottom: 0;
 }
+
 // Inline checkbox/radio labels (remove padding on left)
 .form-search .radio,
 .form-search .checkbox,
@@ -522,6 +530,7 @@ select:focus:required:invalid {
   margin-bottom: 0;
   vertical-align: middle;
 }
+
 // Remove float and margin, set to inline-block
 .form-search .radio input[type="radio"],
 .form-search .checkbox input[type="checkbox"],
@@ -531,7 +540,6 @@ select:focus:required:invalid {
   margin-right: 3px;
   margin-left: 0;
 }
-
 
 // Margin to space out fieldsets
 .control-group {

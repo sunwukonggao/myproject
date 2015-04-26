@@ -7,7 +7,7 @@
         <result property="user_id" column="user_id"/>
         <result property="group_id" column="group_id"/>
     </resultMap>
-    <select id="getGroup"   parameterType="Integer" resultType="list" resultMap="Integer">
+    <select id="getGroup" parameterType="int" resultType="list">
         <![CDATA[
 
 

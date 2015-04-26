@@ -1,28 +1,39 @@
 @import "twbs-203/bootstrap.less";
-
 @import "mixins.less";
 @import "variables.less";
 @import "font-site.less";
 @import "font-awesome.less";
 
 // These accomodate navbar-fixed-top
-#overview { padding-top: 60px; }
+#overview {
+  padding-top: 60px;
+}
+
 #new-icons, #all-icons, #examples, #integration, #code, #roadmap {
   padding-top: 40px;
 }
+
 .navbar .brand {
   padding: 11px 20px 9px;
   color: @white;
 }
 
-.navbar-inner { .border-radius(0); }
+.navbar-inner {
+  .border-radius(0);
+}
 
-.navbar .nav > li > a { padding: 12px 10px 9px; }
+.navbar .nav > li > a {
+  padding: 12px 10px 9px;
+}
 
-h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: @serifFontFamily;
+}
 
 #iconCarousel {
-  a { color: @white; }
+  a {
+    color: @white;
+  }
   @size: 275px;
   float: right;
   width: @size * .9 + 20;
@@ -59,9 +70,11 @@ h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
 .hero-unit {
   margin-bottom: 20px;
   .border-radius(20px);
-//  #gradient > .radial( lighten(@red, 10%), @red);
+  //  #gradient > .radial( lighten(@red, 10%), @red);
   background-color: @red;
-  &, h1 { color: @white; }
+  &, h1 {
+    color: @white;
+  }
   h1 {
     font-size: 70px;
     letter-spacing: -1px;
@@ -86,7 +99,9 @@ h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
       text-shadow: 1px 1px 1px @grayDark;
     }
   }
-  a { color: #fffeb8; }
+  a {
+    color: #fffeb8;
+  }
   .btn-large {
     .buttonBackground(@white, #bbb);
     font-family: @serifFontFamily;
@@ -100,9 +115,9 @@ h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
     .border-radius(6px);
     position: relative;
     text-align: left;
-    i  {
+    i {
       position: absolute;
-//      top: 13px;
+      //      top: 13px;
       left: 22px;
       font-size: 46px;
     }
@@ -121,9 +136,9 @@ h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
   .buttonBackground(#fffeb8, #c49c38);
   *background-color: #e7d785;
   color: @grayDark;
-  text-shadow: 0 -1px 0 rgba(255,255,255,.25);
+  text-shadow: 0 -1px 0 rgba(255, 255, 255, .25);
   &:hover {
-    text-shadow: 0 -1px 0 rgba(255,255,255,.25);
+    text-shadow: 0 -1px 0 rgba(255, 255, 255, .25);
     color: @grayDark;
   }
 }
@@ -148,7 +163,6 @@ h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
   }
 }
 
-
 .the-icons {
   list-style-type: none;
   margin-left: 0;
@@ -166,7 +180,10 @@ h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
     }
     &:hover {
       background-color: lighten(@errorBackground, 6%);
-      [class^="icon-"], [class*=" icon-"] { *font-size: 24px; *vertical-align: middle; }
+      [class^="icon-"], [class*=" icon-"] {
+        *font-size: 24px;
+        *vertical-align: middle;
+      }
 
       [class^="icon-"]:before,
       [class*=" icon-"]:before {
@@ -202,7 +219,9 @@ h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
 }
 
 #integration {
-  .row { margin-bottom: 40px; }
+  .row {
+    margin-bottom: 40px;
+  }
 }
 
 #examples, #code {
@@ -240,7 +259,6 @@ h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
   }
 }
 
-
 .modal {
   width: 560px;
   max-height: 600px;
@@ -248,34 +266,50 @@ h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
     *overflow: hidden; // ie7 fix
     max-height: none;
     padding-bottom: 0;
-    .row { margin-bottom: 15px; }
+    .row {
+      margin-bottom: 15px;
+    }
     div.thumbnail {
       text-align: center;
-      div { margin-bottom: 5px; }
+      div {
+        margin-bottom: 5px;
+      }
     }
     .icon6 {
       width: 325px;
-      > div.thumbnail > div { .icon-size(340px); }
+      > div.thumbnail > div {
+        .icon-size(340px);
+      }
     }
     .icon5 {
       width: 185px;
-      > div.thumbnail > div { .icon-size(180px); }
+      > div.thumbnail > div {
+        .icon-size(180px);
+      }
     }
     .icon4 {
       width: 215px;
-      > div.thumbnail > div { .icon-size(100px); }
+      > div.thumbnail > div {
+        .icon-size(100px);
+      }
     }
     .icon3 {
       width: 120px;
-      > div.thumbnail > div { .icon-size(50px); }
+      > div.thumbnail > div {
+        .icon-size(50px);
+      }
     }
     .icon2 {
       width: 75px;
-      > div.thumbnail > div { .icon-size(20px); }
+      > div.thumbnail > div {
+        .icon-size(20px);
+      }
     }
     .icon1 {
       width: 60px;
-      > div.thumbnail > div { .icon-size(12px); }
+      > div.thumbnail > div {
+        .icon-size(12px);
+      }
     }
   }
 }
@@ -284,7 +318,6 @@ h1, h2, h3, h4, h5, h6 { font-family: @serifFontFamily; }
 .badge {
   background-color: @grayLighter;
 }
-
 
 footer {
   color: @gray;

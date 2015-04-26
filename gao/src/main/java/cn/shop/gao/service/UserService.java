@@ -21,7 +21,7 @@ public interface UserService {
 
     public int getUserCount();
 
-    public String  getUserRight(Integer user_id);
+    public String getUserRight(Integer user_id);
 
     public List<Serializable> getAllUserredis();
 

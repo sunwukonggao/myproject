@@ -1,7 +1,6 @@
 package cn.shop.gao.dao.impl;
 
 
-
 import cn.shop.gao.dao.UserGroupDao;
 import cn.shop.gao.mapper.UserGroupMapper;
 import org.springframework.stereotype.Repository;
@@ -14,11 +13,12 @@ import java.util.List;
  */
 @Repository("userGroupDaoimpl")
 public class UserGroupDaoImpl implements UserGroupDao {
-    private UserGroupMapper  userGroupMapper;
+    private UserGroupMapper userGroupMapper;
 
     public UserGroupMapper getUserGroupMapper() {
         return userGroupMapper;
     }
+
     @Resource(name = "userGroupMapper")
     public void setUserGroupMapper(UserGroupMapper userGroupMapper) {
         this.userGroupMapper = userGroupMapper;

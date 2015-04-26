@@ -56,6 +56,7 @@ public class UserServiceImpl implements UserService {
     public GroupDao getGroupDao() {
         return groupDao;
     }
+
     @Resource(name = "groupDaoimpl")
     public void setGroupDao(GroupDao groupDao) {
         this.groupDao = groupDao;
@@ -64,6 +65,7 @@ public class UserServiceImpl implements UserService {
     public UserGroupDao getUserGroupDao() {
         return userGroupDao;
     }
+
     @Resource(name = "userGroupDaoimpl")
     public void setUserGroupDao(UserGroupDao userGroupDao) {
         this.userGroupDao = userGroupDao;
@@ -132,22 +134,17 @@ public class UserServiceImpl implements UserService {
     }
 
     public String getUserRight(Integer user_id) {
-        List<Integer> groups =userGroupDao.getGroup(user_id);
-        int groupsize=groups.size();
-        if(groupsize==1)
-        {
+        List<Integer> groups = userGroupDao.getGroup(user_id);
+        int groupsize = groups.size();
+        if (groupsize == 1) {
             return groupDao.findRight(groups.get(1));
-        }
-        else if(groupsize>1)
-        {
-            List<String> right=new ArrayList<String>();
-            for(Integer id:groups)
-            {
+        } else if (groupsize > 1) {
+            List<String> right = new ArrayList<String>();
+            for (Integer id : groups) {
                 right.add(groupDao.findRight(id));
             }
-            int size =right.size();
-            for(String s: right)
-            {
+            int size = right.size();
+            for (String s : right) {
 
             }
 

@@ -1,7 +1,6 @@
 package cn.shop.gao.dao.impl;
 
 
-
 import cn.shop.gao.dao.GroupDao;
 import cn.shop.gao.mapper.GroupMapper;
 import org.springframework.stereotype.Repository;
@@ -18,6 +17,7 @@ public class GroupDaoImpl implements GroupDao {
     public GroupMapper getGroupMapper() {
         return groupMapper;
     }
+
     @Resource(name = "groupMapper")
     public void setGroupMapper(GroupMapper groupMapper) {
         this.groupMapper = groupMapper;

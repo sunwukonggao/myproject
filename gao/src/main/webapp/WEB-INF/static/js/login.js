@@ -31,7 +31,7 @@ $(document).ready(
                     success: function (data) {
                         $("#message").html("");
                         if (data.islogin == "true") {
-                            location.href="index";
+                            location.href = "index";
                         } else {
                             $("#name").val("");
                             $("#password").val("");

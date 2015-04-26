@@ -1,7 +1,7 @@
 package cn.shop.gao.web;
 
-import cn.shop.gao.service.UserService;
 import cn.shop.gao.annotation.Login;
+import cn.shop.gao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

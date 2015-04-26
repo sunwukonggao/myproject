@@ -1,7 +1,6 @@
 // BUTTON STYLES
 // -------------
 
-
 // Base styles
 // --------------------------------------------------
 
@@ -16,7 +15,7 @@
   *line-height: 20px;
   color: @grayDark;
   text-align: center;
-  text-shadow: 0 1px 1px rgba(255,255,255,.75);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .75);
   vertical-align: middle;
   cursor: pointer;
   .buttonBackground(@btnBackground, @btnBackgroundHighlight);
@@ -66,7 +65,6 @@
   .box-shadow(none);
 }
 
-
 // Button Sizes
 // --------------------------------------------------
 
@@ -77,6 +75,7 @@
   line-height: normal;
   .border-radius(5px);
 }
+
 .btn-large [class^="icon-"] {
   margin-top: 1px;
 }
@@ -87,6 +86,7 @@
   font-size: @baseFontSize - 2px;
   line-height: @baseLineHeight - 2px;
 }
+
 .btn-small [class^="icon-"] {
   margin-top: -1px;
 }
@@ -97,7 +97,6 @@
   font-size: @baseFontSize - 2px;
   line-height: @baseLineHeight - 4px;
 }
-
 
 // Alternate buttons
 // --------------------------------------------------
@@ -117,8 +116,9 @@
 .btn-inverse,
 .btn-inverse:hover {
   color: @white;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 }
+
 // Provide *some* extra contrast for those who can get it
 .btn-primary.active,
 .btn-warning.active,
@@ -126,7 +126,7 @@
 .btn-success.active,
 .btn-info.active,
 .btn-inverse.active {
-  color: rgba(255,255,255,.75);
+  color: rgba(255, 255, 255, .75);
 }
 
 // Set the backgrounds
@@ -134,32 +134,37 @@
 .btn {
   // reset here as of 2.0.3 due to Recess property order
   border-color: #ccc;
-  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+  border-color: rgba(0, 0, 0, .1) rgba(0, 0, 0, .1) rgba(0, 0, 0, .25);
 }
+
 .btn-primary {
   .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
 }
+
 // Warning appears are orange
 .btn-warning {
   .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
 }
+
 // Danger and error appear as red
 .btn-danger {
   .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
 }
+
 // Success appears as green
 .btn-success {
   .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
 }
+
 // Info appears as a neutral blue
 .btn-info {
   .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
 }
+
 // Inverse appears as dark gray
 .btn-inverse {
   .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
 }
-
 
 // Cross-browser Jank
 // --------------------------------------------------

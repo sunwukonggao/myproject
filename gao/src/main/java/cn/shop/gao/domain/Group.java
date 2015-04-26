@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("group")
 public class Group {
-    private  Integer id;
-    private  String group_name;
-    private  String right_content;
+    private Integer id;
+    private String group_name;
+    private String right_content;
 
     public String getGroup_name() {
         return group_name;

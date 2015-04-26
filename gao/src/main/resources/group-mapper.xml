@@ -7,7 +7,7 @@
         <result property="group_name" column="group_name"/>
         <result property="right_content" column="right_content"/>
     </resultMap>
-    <select id="getRight" parameterType="Integer" resultType="String">
+    <select id="getRight" parameterType="int" resultType="java.lang.String">
         <![CDATA[
 
 

@@ -39,8 +39,9 @@
                             <input pe="text" id="name" name="user_id" class="span12"/>
                             <label>密码</label>
                             <input id="password" name="passwd" type="password" class="span12"/>
-                            <input type="button" id="Submitbtn" class="btn btn-primary pull-right" value="提交" />
+                            <input type="button" id="Submitbtn" class="btn btn-primary pull-right" value="提交"/>
                             <label class="remember-me"><input type="checkbox">记住我</label>
+
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -48,7 +49,7 @@
                 <p><a href="reset-password.html">忘记密码?</a></p>
             </div>
         </div>
-        </div>
+    </div>
 </form>
 </body>
 </html>

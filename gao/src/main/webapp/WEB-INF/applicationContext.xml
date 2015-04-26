@@ -14,7 +14,7 @@
     <!-- 配置数据源属性文件 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close" p:driverClass="com.mysql.jdbc.Driver"
-          p:jdbcUrl="jdbc:mysql://localhost:3306/gao?useUnicode=true&amp;characterEncoding=UTF-8"
+          p:jdbcUrl="jdbc:mysql://127.0.0.1:3306/gao?useUnicode=true&amp;characterEncoding=UTF-8"
           p:user="root" p:password="123456" p:maxPoolSize="40" p:minPoolSize="1"
           p:initialPoolSize="1" p:maxIdleTime="20"/>
 
@@ -40,7 +40,7 @@
 
     <!-- 单独配置一个Mapper； 这种模式需要每个mapper接口配置一个bean
       <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="cn.edu.bjtu.jsjjx.mapper.UserMapper"
+        <property name="mapperInterface" value="cn.shop.gao.mapper.UserMapper"
         /> <property name="sqlSessionFactory" ref="sqlSessionFactory" /> </bean> -->
 
     <!-- 通过扫描的模式，扫描目录在/mapper目录下，所有的mapper都继承SqlMapper接口的接口， 这样一个bean就可以了 -->

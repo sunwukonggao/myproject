@@ -1,7 +1,7 @@
 package cn.shop.gao.web;
 
-import cn.shop.gao.tools.ResultTypeEnum;
 import cn.shop.gao.annotation.Login;
+import cn.shop.gao.tools.ResultTypeEnum;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;

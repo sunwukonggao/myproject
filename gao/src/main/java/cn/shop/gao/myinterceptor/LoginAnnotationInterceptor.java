@@ -26,13 +26,12 @@ public class LoginAnnotationInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
         HttpSession session = request.getSession();
-        String user = (String)session.getAttribute(SessionHelper.UserHandler);
+        String user = (String) session.getAttribute(SessionHelper.UserHandler);
 
         if (null == user) {
             // 需要登录
             if (login.value() == ResultTypeEnum.page) {
                 //采用传统页面进行登录提示
-                System.out.println("LoginAnnotationInterceptor");
                 response.sendRedirect("login");
                 // request.getRequestDispatcher("login").forward(request, response);
             } else if (login.value() == ResultTypeEnum.json) {
