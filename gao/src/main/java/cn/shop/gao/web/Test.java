@@ -50,6 +50,13 @@ public class Test {
     }
 
     @SuppressWarnings("rawtypes")
+    @RequestMapping(value = "/right")
+    @ResponseBody
+    public String getRight() {
+        return userservice.getUserRight(2);
+    }
+
+    @SuppressWarnings("rawtypes")
     @RequestMapping(value = "/jguser")
     @ResponseBody
     public JqGridBaseAction jgUser(JqGridBaseAction jqGridBaseAction) {

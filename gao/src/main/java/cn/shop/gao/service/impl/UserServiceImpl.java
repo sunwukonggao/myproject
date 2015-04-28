@@ -137,16 +137,18 @@ public class UserServiceImpl implements UserService {
         List<Integer> groups = userGroupDao.getGroup(user_id);
         int groupsize = groups.size();
         if (groupsize == 1) {
-            return groupDao.findRight(groups.get(1));
+            return groupDao.findRight(groups.get(0));
         } else if (groupsize > 1) {
             List<String> right = new ArrayList<String>();
             for (Integer id : groups) {
                 right.add(groupDao.findRight(id));
             }
             int size = right.size();
-            for (String s : right) {
-
+            Integer temp = 0;
+            for (int i = 0; i < size; i++) {
+                temp = temp | Integer.parseInt(right.get(i), 2);
             }
+            return Integer.toBinaryString(temp);
 
         }
         return null;

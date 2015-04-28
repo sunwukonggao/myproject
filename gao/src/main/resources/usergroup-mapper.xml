@@ -7,12 +7,14 @@
         <result property="user_id" column="user_id"/>
         <result property="group_id" column="group_id"/>
     </resultMap>
-    <select id="getGroup" parameterType="int" resultType="list">
+    <select id="getGroup" parameterType="int" resultType="int">
         <![CDATA[
 
 
 
+
 			select group_id from shop_user_group where user_id=#{user_id}
+
 
 
 
