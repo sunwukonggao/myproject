@@ -70,14 +70,15 @@ public class Login {
                 loginAjax.setIslogin("false");
                 return loginAjax;
             } else {
-                User userresult = userService.getUser(user);
-                if (userresult != null) {
-                    request.getSession().setAttribute("user_id", userresult.getUser_id());
-                    request.getSession().setAttribute("name", userresult.getName());
-                    request.getSession().setAttribute("user_group", userresult.getGroup_id());
+                User userResult = userService.getUser(user);
+                if (userResult != null) {
+                    request.getSession().setAttribute("right",userService.getUserRight(userResult.getId()));
+                    request.getSession().setAttribute("user_id", userResult.getUser_id());
+                    request.getSession().setAttribute("name", userResult.getName());
+                    request.getSession().setAttribute("user_group", userResult.getGroup_id());
                     loginAjax.setIslogin("true");
-                    loginAjax.setUser(userresult);
-                    logger.info("用户" + userresult.getUser_id()
+                    loginAjax.setUser(userResult);
+                    logger.info("用户" + userResult.getUser_id()
                             + "登陆登陆成功，来自"
                             + request.getRemoteAddr());
                 } else {
