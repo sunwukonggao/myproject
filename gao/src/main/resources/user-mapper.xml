@@ -14,7 +14,7 @@
         <result property="group_id" column="group_id"/>
         <result property="academe_id" column="academe_id"/>
     </resultMap>
-    <select id="getUser" resultType="list" resultMap="userresultMap">
+    <select id="getUser"  resultMap="userresultMap">
         <![CDATA[
 
 

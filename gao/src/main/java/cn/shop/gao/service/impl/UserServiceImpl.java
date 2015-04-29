@@ -91,11 +91,12 @@ public class UserServiceImpl implements UserService {
     }
 
     public List<Serializable> getAllUserredis() {
-
+        redisTemplate.opsForList().getOperations().delete("all");
         if (redisTemplate.opsForList().range("all", 0, -1).size() == 0) {
             redisTemplate.opsForList().leftPushAll("all", userdao.findALLUser());
             return redisTemplate.opsForList().range("all", 0, -1);
         } else {
+            System.out.println(redisTemplate.opsForList().range("all", 0, -1));
             return redisTemplate.opsForList().range("all", 0, -1);
         }
     }
