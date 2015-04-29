@@ -24,7 +24,7 @@ public class UserGroupDaoImpl implements UserGroupDao {
         this.userGroupMapper = userGroupMapper;
     }
 
-    public List<Integer> getGroup(Integer id) {
-        return userGroupMapper.getGroup(id);
+    public List<String> getGroupRight(Integer id) {
+        return userGroupMapper.getGroupRight(id);
     }
 }

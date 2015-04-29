@@ -7,13 +7,13 @@
         <result property="user_id" column="user_id"/>
         <result property="group_id" column="group_id"/>
     </resultMap>
-    <select id="getGroup" parameterType="int" resultType="int">
+    <select id="getGroupRight" parameterType="int" resultType="String">
         <![CDATA[
 
 
 
 
-			select group_id from shop_user_group where user_id=#{user_id}
+			select shop_group.right_content from shop_user_group , shop_group where shop_user_group.group_id=shop_group.id and shop_user_group.user_id=#{user_id}
 
 
 
