@@ -72,7 +72,7 @@ public class Login {
             } else {
                 User userResult = userService.getUser(user);
                 if (userResult != null) {
-                    request.getSession().setAttribute("right",userService.getUserRight(userResult.getId()));
+                    request.getSession().setAttribute("right", userService.getUserRight(userResult.getId()));
                     request.getSession().setAttribute("user_id", userResult.getUser_id());
                     request.getSession().setAttribute("name", userResult.getName());
                     request.getSession().setAttribute("user_group", userResult.getGroup_id());
@@ -96,6 +96,16 @@ public class Login {
             loginAjax.setIslogin("false");
             return loginAjax;
         }
+    }
+
+    @RequestMapping(value = "/logout")
+    public ModelAndView logout() {
+        request.getSession().removeAttribute("right");
+        request.getSession().removeAttribute("user_id");
+        request.getSession().removeAttribute("name");
+        request.getSession().removeAttribute("user_group");
+        request.getSession().invalidate();
+        return new ModelAndView("login");
     }
 
     public Boolean checkName(String name) {

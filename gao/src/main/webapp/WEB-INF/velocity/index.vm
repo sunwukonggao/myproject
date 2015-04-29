@@ -22,9 +22,9 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="#">Settings</a></li>
+                        <li><a tabindex="-1" href="#">设置</a></li>
                         <li class="divider"></li>
-                        <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
+                        <li><a tabindex="-1" href="logout">退出</a></li>
                     </ul>
                 </li>
 
@@ -45,13 +45,24 @@
                         class="icon-dashboard"></i>管理面板
                 </div>
                 <ul id="dashboard-menu" class="nav nav-list collapse in">
-                    <li><a href="index">主页</a></li>
-                    <li><a href="admin/user">用户</a></li>
-                    <li><a href="user.html">Sample Item</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="calendar.html">Calendar</a></li>
-                    <li><a href="faq.html">Faq</a></li>
-                    <li><a href="help.html">Help</a></li>
+                    #set($right=$session.getAttribute("right"))
+                    #if($right.toCharArray()[0]=='1')
+                        <li><a href="index">用户管理</a></li>
+                    #end
+                    #if($right.toCharArray()[1]=='1')
+                        <li><a href="admin/user">我的关注</a></li>
+                    #end
+                    #if($right.toCharArray()[2]=='1')
+                        <li><a href="user.html">订单管理</a></li>
+                    #end
+                    #if($right.toCharArray()[3]=='1')
+                        <li><a href="gallery.html">我的订单</a></li>
+                    #end
+                    #if($right.toCharArray()[4]=='1')
+                        <li><a href="calendar.html">优惠券</a></li>
+                    #end
+                    <li><a href="faq.html">问题列表</a></li>
+                    <li><a href="help.html">帮助</a></li>
 
                 </ul>
                 <div class="nav-header" data-toggle="collapse" data-target="#accounts-menu"><i
