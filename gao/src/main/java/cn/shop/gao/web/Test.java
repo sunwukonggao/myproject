@@ -50,7 +50,7 @@ public class Test {
     }
 
     @SuppressWarnings("rawtypes")
-    @RequestMapping(value = "/right")
+    @RequestMapping(value = "/righttest")
     @ResponseBody
     public String getRight() {
         return userservice.getUserRight(1);

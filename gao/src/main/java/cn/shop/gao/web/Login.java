@@ -1,7 +1,10 @@
 package cn.shop.gao.web;
 
 import cn.shop.gao.annotation.IsLogin;
+import cn.shop.gao.domain.Cart;
+import cn.shop.gao.domain.Good;
 import cn.shop.gao.domain.User;
+import cn.shop.gao.service.GoodService;
 import cn.shop.gao.service.UserService;
 import cn.shop.gao.tools.LoginAjax;
 import org.apache.log4j.Logger;
@@ -12,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,7 +30,26 @@ public class Login {
     static Logger logger = Logger.getLogger(Login.class);
     private LoginAjax loginAjax;
     private UserService userService;
+    private GoodService goodService;
     private HttpServletRequest request;
+    private HttpServletResponse response;
+
+    public GoodService getGoodService() {
+        return goodService;
+    }
+
+    public void setGoodService(GoodService goodService) {
+        this.goodService = goodService;
+    }
+
+    public HttpServletResponse getResponse() {
+        return response;
+    }
+
+    @Autowired
+    public void setResponse(HttpServletResponse response) {
+        this.response = response;
+    }
 
     public HttpServletRequest getRequest() {
         return request;
@@ -72,6 +96,7 @@ public class Login {
             } else {
                 User userResult = userService.getUser(user);
                 if (userResult != null) {
+                    peristShoppingCartWhenUserLogin(userResult);
                     request.getSession().setAttribute("right", userService.getUserRight(userResult.getId()));
                     request.getSession().setAttribute("user_id", userResult.getUser_id());
                     request.getSession().setAttribute("name", userResult.getName());
@@ -116,4 +141,49 @@ public class Login {
         return isMatched;
     }
 
+
+    public void peristShoppingCartWhenUserLogin(User user) {
+        if (null != user) {
+            Cookie cookies[] = request.getCookies();
+            if (cookies != null) {
+                for (Cookie c : cookies) {
+                    if (c.getName().startsWith("beforeLoginCookie")) {
+                        String name = c.getName();
+                        Integer amount = Integer.valueOf(c.getValue());
+                        Integer good_id = Integer.valueOf(name.substring(name.lastIndexOf("_") + 1));
+                        Good goods = goodService.getGood(good_id);
+                        Cart shoppingCartTemp = new Cart();
+                        if (null != goods) {
+                            if (goodService.isHaveCart(user, goods)) {
+                                Cart oldShoppingCart = goodService.getByUserAndGood(user, goods);
+                                oldShoppingCart.setAmount(amount);
+                                goodService.updateCart(oldShoppingCart);
+                            } else {
+                                shoppingCartTemp.setAmount(amount);
+                                shoppingCartTemp.setUser_id(user.getId());
+                                shoppingCartTemp.setGood_id(goods.getGood_id());
+                                goodService.saveCart(shoppingCartTemp);
+                            }
+                        }
+                    }
+                }
+                removeAllCookies();// 移除所有的商品cookies
+            }
+        }
+    }
+
+    public void removeAllCookies() {
+        Cookie cookies[] = request.getCookies();
+        if (cookies == null || cookies.length < 0) {
+            System.out.println("没有cookie");
+        } else {
+            System.out.println("开始删除cookies..");
+            for (Cookie c : cookies) {
+                if (c.getName().startsWith("beforeLoginCookie")) {
+                    c.setMaxAge(0);
+                    response.addCookie(c);
+                }
+            }
+        }
+    }
 }
