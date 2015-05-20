@@ -32,7 +32,7 @@ public class Login {
     private UserService userService;
     private GoodService goodService;
     private HttpServletRequest request;
-    private HttpServletResponse response;
+
 
     public GoodService getGoodService() {
         return goodService;
@@ -40,15 +40,6 @@ public class Login {
 
     public void setGoodService(GoodService goodService) {
         this.goodService = goodService;
-    }
-
-    public HttpServletResponse getResponse() {
-        return response;
-    }
-
-    @Autowired
-    public void setResponse(HttpServletResponse response) {
-        this.response = response;
     }
 
     public HttpServletRequest getRequest() {
@@ -88,7 +79,7 @@ public class Login {
     @SuppressWarnings("rawtypes")
     @RequestMapping(value = "/checklogin", method = RequestMethod.POST)
     @ResponseBody
-    public LoginAjax loginCheck(User user) {
+    public LoginAjax loginCheck(User user,HttpServletResponse response) {
         try {
             if (!checkName(user.getUser_id()) || user.getUser_id() == "") {
                 loginAjax.setIslogin("false");
@@ -96,7 +87,7 @@ public class Login {
             } else {
                 User userResult = userService.getUser(user);
                 if (userResult != null) {
-                    peristShoppingCartWhenUserLogin(userResult);
+                    peristShoppingCartWhenUserLogin(userResult,response);
                     request.getSession().setAttribute("right", userService.getUserRight(userResult.getId()));
                     request.getSession().setAttribute("user_id", userResult.getUser_id());
                     request.getSession().setAttribute("name", userResult.getName());
@@ -142,7 +133,7 @@ public class Login {
     }
 
 
-    public void peristShoppingCartWhenUserLogin(User user) {
+    public void peristShoppingCartWhenUserLogin(User user,HttpServletResponse response) {
         if (null != user) {
             Cookie cookies[] = request.getCookies();
             if (cookies != null) {
@@ -167,12 +158,12 @@ public class Login {
                         }
                     }
                 }
-                removeAllCookies();// 移除所有的商品cookies
+                removeAllCookies(response);// 移除所有的商品cookies
             }
         }
     }
 
-    public void removeAllCookies() {
+    public void removeAllCookies(HttpServletResponse response) {
         Cookie cookies[] = request.getCookies();
         if (cookies == null || cookies.length < 0) {
             System.out.println("没有cookie");

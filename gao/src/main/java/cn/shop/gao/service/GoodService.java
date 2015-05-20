@@ -5,12 +5,15 @@ import cn.shop.gao.domain.Good;
 import cn.shop.gao.domain.User;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by gaojc on 2015/5/6.
  */
-@Service
 public interface GoodService {
     public Good getGood(Integer id);
+
+    public List<Good> getAllGood();
 
     public Boolean isHaveCart(User user, Good good);
 

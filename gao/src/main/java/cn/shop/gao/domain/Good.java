@@ -9,6 +9,15 @@ import org.springframework.stereotype.Repository;
 public class Good {
     private Integer id;
     private Integer good_id;
+    private String  good_name;
+
+    public String getGood_name() {
+        return good_name;
+    }
+
+    public void setGood_name(String good_name) {
+        this.good_name = good_name;
+    }
 
     public Integer getGood_id() {
         return good_id;

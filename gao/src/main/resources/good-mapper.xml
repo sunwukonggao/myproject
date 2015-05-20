@@ -5,7 +5,21 @@
     <resultMap type="cn.shop.gao.domain.Good" id="goodresultMap">
         <id property="id" column="id"/>
         <result property="good_id" column="good_id"/>
+        <result property="good_name" column="good_name"/>
     </resultMap>
+    <select id="findAllGood"  resultMap="goodresultMap">
+        <![CDATA[
+
+
+
+
+			select * from shop_good
+
+
+
+
+        ]]>
+    </select>
     <select id="findGood" parameterType="int" resultType="Good">
         <![CDATA[
 

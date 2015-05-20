@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Created by gaojc on 2015/4/21.
  */
-@Controller()
+@Controller
 @RequestMapping(value = "/admin")
 public class Admin {
     private UserService userservice;
