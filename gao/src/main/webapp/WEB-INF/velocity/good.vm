@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>商品交易平台</title>
+    <script type="text/javascript"
+            src="static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript"
+            src="static/js/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript"
+            src="static/js/i18n/grid.locale-cn.js"></script>
+    <script type="text/javascript"
+            src="static/js/jqGridGroup.js"></script>
+    <script type="text/javascript"
+            src="static/js/jquery-ui.js"></script>
+    <script type="text/javascript"
+            src="static/js/jquery.noty.js"></script>
+    <script type="text/javascript"
+            src="static/js/themes/default.js"></script>
+    <script type="text/javascript"
+            src="static/js/layouts/center.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="static/css/ui.jqgrid.css">
+    <link rel="stylesheet" type="text/css"
+          href="static/css/ui.multiselect.css">
+    <link rel="stylesheet" type="text/css"
+          href="static/css/jquery-ui.css">
+</head>
+<body>
+<table border="1">
+    <tr>
+
+        <th width="100px">商品ID</th>
+        <th width="200px">用户名</th>
+    </tr>
+    #foreach ($good in $goods)
+        <tr>
+            <td align="center">${good.good_id}</td>
+            <td align="center">${good.good_name}</td>
+        </tr>
+        #end
+</table>
+</body>
+</html>
