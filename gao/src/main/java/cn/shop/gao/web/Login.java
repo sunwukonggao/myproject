@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +39,7 @@ public class Login {
         return goodService;
     }
 
+    @Resource(name = "goodServiceImpl")
     public void setGoodService(GoodService goodService) {
         this.goodService = goodService;
     }
@@ -79,7 +81,7 @@ public class Login {
     @SuppressWarnings("rawtypes")
     @RequestMapping(value = "/checklogin", method = RequestMethod.POST)
     @ResponseBody
-    public LoginAjax loginCheck(User user,HttpServletResponse response) {
+    public LoginAjax loginCheck(User user, HttpServletResponse response) {
         try {
             if (!checkName(user.getUser_id()) || user.getUser_id() == "") {
                 loginAjax.setIslogin("false");
@@ -87,7 +89,7 @@ public class Login {
             } else {
                 User userResult = userService.getUser(user);
                 if (userResult != null) {
-                    peristShoppingCartWhenUserLogin(userResult,response);
+                    peristShoppingCartWhenUserLogin(userResult, response);
                     request.getSession().setAttribute("right", userService.getUserRight(userResult.getId()));
                     request.getSession().setAttribute("user_id", userResult.getUser_id());
                     request.getSession().setAttribute("name", userResult.getName());
@@ -133,7 +135,7 @@ public class Login {
     }
 
 
-    public void peristShoppingCartWhenUserLogin(User user,HttpServletResponse response) {
+    public void peristShoppingCartWhenUserLogin(User user, HttpServletResponse response) {
         if (null != user) {
             Cookie cookies[] = request.getCookies();
             if (cookies != null) {
@@ -171,6 +173,7 @@ public class Login {
             System.out.println("开始删除cookies..");
             for (Cookie c : cookies) {
                 if (c.getName().startsWith("beforeLoginCookie")) {
+                    c.setPath("/");
                     c.setMaxAge(0);
                     response.addCookie(c);
                 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 public class Good {
     private Integer id;
     private Integer good_id;
-    private String  good_name;
+    private String good_name;
 
     public String getGood_name() {
         return good_name;

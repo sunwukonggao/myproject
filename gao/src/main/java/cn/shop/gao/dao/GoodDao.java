@@ -1,7 +1,6 @@
 package cn.shop.gao.dao;
 
 import cn.shop.gao.domain.Good;
-import cn.shop.gao.domain.User;
 
 import java.util.List;
 
@@ -12,8 +11,6 @@ public interface GoodDao {
     public Good findGood(Integer id);
 
     public List<Good> findAllGood();
-
-    public Boolean checkCart(User user, Good good);
 
 
 }

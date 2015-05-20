@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.shop.gao.mapper.CarMapper">
+<mapper namespace="cn.shop.gao.mapper.CartMapper">
     <resultMap type="cn.shop.gao.domain.Cart" id="cartresultMap">
         <id property="id" column="id"/>
         <result property="good_id" column="good_id"/>
         <result property="user_id" column="user_id"/>
     </resultMap>
-    <select id="findByUserAndGood" resultType="Cart">
+    <select id="checkCart" resultType="Cart">
         <![CDATA[
 
 
 
 
 
-			select * from shop_cart where good_id=#{good_id}  and user_id=#{user_id}
+
+			select * from shop_cart where good_id=#{1}  and user_id=#{0}
+
 
 
 
@@ -23,14 +25,18 @@
 
         ]]>
     </select>
-    <select id="updateCart" parameterType="int">
+    <update id="updateCart" parameterType="Cart">
         <![CDATA[
 
 
 
 
 
-			UPDATE  shop_good SET amount=#{amount} WHERE good_id=#{good_id}  and user_id=#{user_id}
+
+
+			UPDATE  shop_cart SET amount=#{amount} WHERE good_id=#{good_id}  and user_id=#{user_id}
+
+
 
 
 
@@ -38,15 +44,19 @@
 
 
         ]]>
-    </select>
-    <select id="saveCart" parameterType="int">
+    </update>
+    <insert id="saveCart" parameterType="Cart">
         <![CDATA[
 
 
 
 
 
-			INSERT INTO shop_good SET (user_id,good_id,amount) VALUES (#{user_id),#{good_id},#{amount})
+
+
+			INSERT INTO shop_cart  (user_id,good_id,amount) VALUES (#{user_id},#{good_id},#{amount})
+
+
 
 
 
@@ -54,5 +64,5 @@
 
 
         ]]>
-    </select>
+    </insert>
 </mapper>

@@ -3,7 +3,6 @@ package cn.shop.gao.service;
 import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
 import cn.shop.gao.domain.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

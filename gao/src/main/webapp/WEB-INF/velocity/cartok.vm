@@ -1,0 +1,20 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>商品交易平台</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th width="100px">商品ID</th>
+        <th width="200px">用户名</th>
+    </tr>
+    #foreach ($cookie in $cookies.all)
+        <tr>
+            <td align="center">${cookie.name}</td>
+            <td align="center">${cookie.value}</td>
+        </tr>
+    #end
+</table>
+</body>
+</html>

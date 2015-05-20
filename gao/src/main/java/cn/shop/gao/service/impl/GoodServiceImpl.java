@@ -1,5 +1,6 @@
 package cn.shop.gao.service.impl;
 
+import cn.shop.gao.dao.CartDao;
 import cn.shop.gao.dao.GoodDao;
 import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
@@ -15,22 +16,34 @@ import java.util.List;
  */
 @Service("goodServiceImpl")
 public class GoodServiceImpl implements GoodService {
+    private GoodDao goodDao;
+    private CartDao cartDao;
+
+    public CartDao getCartDao() {
+        return cartDao;
+    }
+
+    @Resource(name = "cartDaoImpl")
+    public void setCartDao(CartDao cartDao) {
+        this.cartDao = cartDao;
+    }
+
+
     public GoodDao getGoodDao() {
         return goodDao;
     }
-    @Resource(name="goodDaoImpl")
+
+    @Resource(name = "goodDaoImpl")
     public void setGoodDao(GoodDao goodDao) {
         this.goodDao = goodDao;
     }
-
-    private GoodDao goodDao;
 
     public Good get(Integer id) {
         return null;
     }
 
     public Good getGood(Integer id) {
-        return null;
+        return goodDao.findGood(id);
     }
 
     public List<Good> getAllGood() {
@@ -38,18 +51,20 @@ public class GoodServiceImpl implements GoodService {
     }
 
     public Boolean isHaveCart(User user, Good good) {
-        return null;
+        return cartDao.checkCart(user, good);
     }
 
     public Cart getByUserAndGood(User user, Good good) {
-        return null;
+        return cartDao.findByUserAndGood(user, good);
     }
 
     public void updateCart(Cart cart) {
+        cartDao.updateCart(cart);
 
     }
 
     public void saveCart(Cart cart) {
+        cartDao.saveCart(cart);
 
     }
 }

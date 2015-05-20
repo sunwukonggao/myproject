@@ -14,4 +14,6 @@ public interface CartMapper extends SqlMapper {
     public void updateCart(Cart cart);
 
     public void saveCart(Cart cart);
+
+    public Cart checkCart(Integer user_id, Integer good_id);
 }

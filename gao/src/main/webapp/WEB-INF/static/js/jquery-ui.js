@@ -246,7 +246,7 @@
     $.fn.extend({
         disableSelection: function () {
             return this.bind(( $.support.selectstart ? "selectstart" : "mousedown" ) +
-            ".ui-disableSelection", function (event) {
+                ".ui-disableSelection", function (event) {
                 event.preventDefault();
             });
         },
@@ -482,7 +482,7 @@
                         instance = $.data(this, fullName);
                     if (!instance) {
                         return $.error("cannot call methods on " + name + " prior to initialization; " +
-                        "attempted to call method '" + options + "'");
+                            "attempted to call method '" + options + "'");
                     }
                     if (!$.isFunction(instance[options]) || options.charAt(0) === "_") {
                         return $.error("no such method '" + options + "' for " + name + " widget instance");
@@ -964,9 +964,9 @@
 
         _mouseDistanceMet: function (event) {
             return (Math.max(
-                Math.abs(this._mouseDownEvent.pageX - event.pageX),
-                Math.abs(this._mouseDownEvent.pageY - event.pageY)
-            ) >= this.options.distance
+                    Math.abs(this._mouseDownEvent.pageX - event.pageX),
+                    Math.abs(this._mouseDownEvent.pageY - event.pageY)
+                ) >= this.options.distance
             );
         },
 
@@ -1429,16 +1429,16 @@
 
             return {
                 top: (
-                pos.top +																// The absolute mouse position
-                this.offset.relative.top * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
-                this.offset.parent.top * mod -										// The offsetParent's offset without borders (offset + border)
-                ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : this.offset.scroll.top ) * mod )
+                    pos.top +																// The absolute mouse position
+                    this.offset.relative.top * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
+                    this.offset.parent.top * mod -										// The offsetParent's offset without borders (offset + border)
+                    ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : this.offset.scroll.top ) * mod )
                 ),
                 left: (
-                pos.left +																// The absolute mouse position
-                this.offset.relative.left * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
-                this.offset.parent.left * mod -										// The offsetParent's offset without borders (offset + border)
-                ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : this.offset.scroll.left ) * mod )
+                    pos.left +																// The absolute mouse position
+                    this.offset.relative.left * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
+                    this.offset.parent.left * mod -										// The offsetParent's offset without borders (offset + border)
+                    ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : this.offset.scroll.left ) * mod )
                 )
             };
 
@@ -1505,18 +1505,18 @@
 
             return {
                 top: (
-                pageY -																	// The absolute mouse position
-                this.offset.click.top -												// Click offset (relative to the element)
-                this.offset.relative.top -												// Only for relative positioned nodes: Relative offset from element to offset parent
-                this.offset.parent.top +												// The offsetParent's offset without borders (offset + border)
-                ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : this.offset.scroll.top )
+                    pageY -																	// The absolute mouse position
+                    this.offset.click.top -												// Click offset (relative to the element)
+                    this.offset.relative.top -												// Only for relative positioned nodes: Relative offset from element to offset parent
+                    this.offset.parent.top +												// The offsetParent's offset without borders (offset + border)
+                    ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : this.offset.scroll.top )
                 ),
                 left: (
-                pageX -																	// The absolute mouse position
-                this.offset.click.left -												// Click offset (relative to the element)
-                this.offset.relative.left -												// Only for relative positioned nodes: Relative offset from element to offset parent
-                this.offset.parent.left +												// The offsetParent's offset without borders (offset + border)
-                ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : this.offset.scroll.left )
+                    pageX -																	// The absolute mouse position
+                    this.offset.click.left -												// Click offset (relative to the element)
+                    this.offset.relative.left -												// Only for relative positioned nodes: Relative offset from element to offset parent
+                    this.offset.parent.left +												// The offsetParent's offset without borders (offset + border)
+                    ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : this.offset.scroll.left )
                 )
             };
 
@@ -2159,13 +2159,13 @@
                 return isOverAxis(draggableTop, t, droppable.proportions.height) && isOverAxis(draggableLeft, l, droppable.proportions.width);
             case "touch":
                 return (
-                    (y1 >= t && y1 <= b) ||	// Top edge touching
-                    (y2 >= t && y2 <= b) ||	// Bottom edge touching
-                    (y1 < t && y2 > b)		// Surrounded vertically
+                        (y1 >= t && y1 <= b) ||	// Top edge touching
+                        (y2 >= t && y2 <= b) ||	// Bottom edge touching
+                        (y1 < t && y2 > b)		// Surrounded vertically
                     ) && (
-                    (x1 >= l && x1 <= r) ||	// Left edge touching
-                    (x2 >= l && x2 <= r) ||	// Right edge touching
-                    (x1 < l && x2 > r)		// Surrounded horizontally
+                        (x1 >= l && x1 <= r) ||	// Left edge touching
+                        (x2 >= l && x2 <= r) ||	// Right edge touching
+                        (x1 < l && x2 > r)		// Surrounded horizontally
                     );
             default:
                 return false;
@@ -4640,16 +4640,16 @@
 
             return {
                 top: (
-                pos.top +																// The absolute mouse position
-                this.offset.relative.top * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
-                this.offset.parent.top * mod -											// The offsetParent's offset without borders (offset + border)
-                ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : ( scrollIsRootNode ? 0 : scroll.scrollTop() ) ) * mod)
+                    pos.top +																// The absolute mouse position
+                    this.offset.relative.top * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
+                    this.offset.parent.top * mod -											// The offsetParent's offset without borders (offset + border)
+                    ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : ( scrollIsRootNode ? 0 : scroll.scrollTop() ) ) * mod)
                 ),
                 left: (
-                pos.left +																// The absolute mouse position
-                this.offset.relative.left * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
-                this.offset.parent.left * mod -										// The offsetParent's offset without borders (offset + border)
-                ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : scrollIsRootNode ? 0 : scroll.scrollLeft() ) * mod)
+                    pos.left +																// The absolute mouse position
+                    this.offset.relative.left * mod +										// Only for relative positioned nodes: Relative offset from element to offset parent
+                    this.offset.parent.left * mod -										// The offsetParent's offset without borders (offset + border)
+                    ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : scrollIsRootNode ? 0 : scroll.scrollLeft() ) * mod)
                 )
             };
 
@@ -4705,18 +4705,18 @@
 
             return {
                 top: (
-                pageY -																// The absolute mouse position
-                this.offset.click.top -													// Click offset (relative to the element)
-                this.offset.relative.top -											// Only for relative positioned nodes: Relative offset from element to offset parent
-                this.offset.parent.top +												// The offsetParent's offset without borders (offset + border)
-                ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : ( scrollIsRootNode ? 0 : scroll.scrollTop() ) ))
+                    pageY -																// The absolute mouse position
+                    this.offset.click.top -													// Click offset (relative to the element)
+                    this.offset.relative.top -											// Only for relative positioned nodes: Relative offset from element to offset parent
+                    this.offset.parent.top +												// The offsetParent's offset without borders (offset + border)
+                    ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollTop() : ( scrollIsRootNode ? 0 : scroll.scrollTop() ) ))
                 ),
                 left: (
-                pageX -																// The absolute mouse position
-                this.offset.click.left -												// Click offset (relative to the element)
-                this.offset.relative.left -											// Only for relative positioned nodes: Relative offset from element to offset parent
-                this.offset.parent.left +												// The offsetParent's offset without borders (offset + border)
-                ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : scrollIsRootNode ? 0 : scroll.scrollLeft() ))
+                    pageX -																// The absolute mouse position
+                    this.offset.click.left -												// Click offset (relative to the element)
+                    this.offset.relative.left -											// Only for relative positioned nodes: Relative offset from element to offset parent
+                    this.offset.parent.left +												// The offsetParent's offset without borders (offset + border)
+                    ( ( this.cssPosition === "fixed" ? -this.scrollParent.scrollLeft() : scrollIsRootNode ? 0 : scroll.scrollLeft() ))
                 )
             };
 
@@ -6522,7 +6522,7 @@
                 this.headers.next()
                     .each(function () {
                         $(this).height(Math.max(0, maxHeight -
-                        $(this).innerHeight() + $(this).height()));
+                            $(this).innerHeight() + $(this).height()));
                     })
                     .css("overflow", "auto");
             } else if (heightStyle === "auto") {
@@ -7996,7 +7996,7 @@
                     date.setMonth(findMax(this._get(inst, (dateFormat.match(/MM/) ?
                         "monthNames" : "monthNamesShort"))));
                     date.setDate(findMax(this._get(inst, (dateFormat.match(/DD/) ?
-                        "dayNames" : "dayNamesShort"))) + 20 - date.getDay());
+                            "dayNames" : "dayNamesShort"))) + 20 - date.getDay());
                 }
                 inst.input.attr("size", this._formatDate(inst, date).length);
             }
@@ -8040,7 +8040,7 @@
                 this.uuid += 1;
                 id = "dp" + this.uuid;
                 this._dialogInput = $("<input type='text' id='" + id +
-                "' style='position: absolute; top: -100px; width: 0px;'/>");
+                    "' style='position: absolute; top: -100px; width: 0px;'/>");
                 this._dialogInput.keydown(this._doKeyDown);
                 $("body").append(this._dialogInput);
                 inst = this._dialogInst = this._newInst(this._dialogInput, false);
@@ -8309,7 +8309,7 @@
                         break; // hide on tab out
                     case 13:
                         sel = $("td." + $.datepicker._dayOverClass + ":not(." +
-                        $.datepicker._currentClass + ")", inst.dpDiv);
+                            $.datepicker._currentClass + ")", inst.dpDiv);
                         if (sel[0]) {
                             $.datepicker._selectDay(event.target, inst.selectedMonth, inst.selectedYear, sel[0]);
                         }
@@ -12946,7 +12946,7 @@
                 }
 
                 this.range.addClass(classes +
-                ( ( options.range === "min" || options.range === "max" ) ? " ui-slider-range-" + options.range : "" ));
+                    ( ( options.range === "min" || options.range === "max" ) ? " ui-slider-range-" + options.range : "" ));
             } else {
                 this.range = $([]);
             }
@@ -14485,7 +14485,7 @@
 
                 this.panels.each(function () {
                     $(this).height(Math.max(0, maxHeight -
-                    $(this).innerHeight() + $(this).height()));
+                        $(this).innerHeight() + $(this).height()));
                 })
                     .css("overflow", "auto");
             } else if (heightStyle === "auto") {

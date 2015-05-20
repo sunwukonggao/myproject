@@ -13,4 +13,6 @@ public interface CartDao {
     public void updateCart(Cart cart);
 
     public void saveCart(Cart cart);
+
+    public Boolean checkCart(User user, Good good);
 }

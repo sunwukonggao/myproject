@@ -1,7 +1,6 @@
 package cn.shop.gao.mapper;
 
 import cn.shop.gao.domain.Good;
-import cn.shop.gao.domain.User;
 
 import java.util.List;
 
@@ -12,7 +11,5 @@ public interface GoodMapper extends SqlMapper {
     public Good findGood(Integer id);
 
     public List<Good> findAllGood();
-
-    public Boolean checkCart(User user, Good good);
 
 }
