@@ -88,7 +88,7 @@ public class Login {
                 return loginAjax;
             } else {
                 User userResult = userService.getUser(user);
-                if (userResult != null) {
+                if (userResult != null && userResult.getPasswd().equals(user.getPasswd())) {
                     peristShoppingCartWhenUserLogin(userResult, response);
                     request.getSession().setAttribute("right", userService.getUserRight(userResult.getId()));
                     request.getSession().setAttribute("user_id", userResult.getUser_id());

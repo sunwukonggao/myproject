@@ -38,7 +38,7 @@
 
 
 
-			select * from shop_user where user_id=#{user_id} and passwd=#{passwd}
+			select * from shop_user where user_id=#{user_id}
 
 
 
