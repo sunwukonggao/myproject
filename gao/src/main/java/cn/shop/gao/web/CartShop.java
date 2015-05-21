@@ -69,8 +69,8 @@ public class CartShop {
     @RequestMapping(value = "/cart")
     public ModelAndView Cart() {
         Cookie[] cookies = request.getCookies();
-        ModelMap model=new ModelMap();
-        model.put("cookies",cookies);
+        ModelMap model = new ModelMap();
+        model.put("cookies", cookies);
         return new ModelAndView("cartok", model);
     }
 
