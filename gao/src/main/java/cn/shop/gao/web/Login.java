@@ -145,13 +145,13 @@ public class Login {
                         Integer amount = Integer.valueOf(c.getValue());
                         Integer good_id = Integer.valueOf(name.substring(name.lastIndexOf("_") + 1));
                         Good goods = goodService.getGood(good_id);
-                        Cart shoppingCartTemp = new Cart();
                         if (null != goods) {
                             if (goodService.isHaveCart(user, goods)) {
                                 Cart oldShoppingCart = goodService.getByUserAndGood(user, goods);
                                 oldShoppingCart.setAmount(amount);
                                 goodService.updateCart(oldShoppingCart);
                             } else {
+                                Cart shoppingCartTemp = new Cart();
                                 shoppingCartTemp.setAmount(amount);
                                 shoppingCartTemp.setUser_id(user.getId());
                                 shoppingCartTemp.setGood_id(goods.getGood_id());

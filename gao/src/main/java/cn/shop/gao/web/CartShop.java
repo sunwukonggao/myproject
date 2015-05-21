@@ -2,6 +2,7 @@ package cn.shop.gao.web;
 
 import cn.shop.gao.domain.Cart;
 import cn.shop.gao.service.GoodService;
+import cn.shop.gao.tools.SessionHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -51,12 +52,19 @@ public class CartShop {
     @RequestMapping(value = "/add/{good_id}")
     public String addCart(@PathVariable("good_id") Integer good_id, HttpServletResponse response) {
         Cart cart = new Cart();
-        cart.setGood_id(good_id);
-        cart.setUser_id(1);
-        cart.setAmount(10);
-        Cookie cookie = new Cookie("beforeLoginCookie_" + good_id, "10");
-        cookie.setPath("/");
-        response.addCookie(cookie);
+        String user = (String) request.getSession().getAttribute(SessionHelper.UserHandler);
+        if (null == user) {
+            Cookie cookie = new Cookie("beforeLoginCookie_" + good_id, "10");
+            cookie.setPath("/");
+            response.addCookie(cookie);
+        }
+        else
+        {
+            cart.setGood_id(good_id);
+            cart.setUser_id(1);
+            cart.setAmount(12);
+            goodService.saveCart(cart);
+        }
         return "redirect:/cart";
     }
 
