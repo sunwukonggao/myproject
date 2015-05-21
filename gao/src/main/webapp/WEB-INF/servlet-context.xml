@@ -30,6 +30,11 @@
             <bean class="cn.shop.gao.myinterceptor.LoginAnnotationInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
+            <mvc:mapping path="/checklogin"/>
+            <!-- 如果不定义 mvc:mapping path 将拦截所有的URL请求 -->
+            <bean class="cn.shop.gao.myinterceptor.QeueInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
             <mvc:mapping path="/admin"/>
             <!-- 如果不定义 mvc:mapping path 将拦截所有的URL请求 -->
             <bean class="cn.shop.gao.myinterceptor.AuthorityAnnotationInterceptor"/>

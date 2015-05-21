@@ -9,7 +9,7 @@
         <th width="100px">商品ID</th>
         <th width="200px">用户名</th>
     </tr>
-    #foreach ($cookie in $cookies.all)
+    #foreach ($cookie in $cookies)
         <tr>
             <td align="center">${cookie.name}</td>
             <td align="center">${cookie.value}</td>

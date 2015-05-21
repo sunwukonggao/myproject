@@ -57,9 +57,7 @@ public class CartShop {
             Cookie cookie = new Cookie("beforeLoginCookie_" + good_id, "10");
             cookie.setPath("/");
             response.addCookie(cookie);
-        }
-        else
-        {
+        } else {
             cart.setGood_id(good_id);
             cart.setUser_id(1);
             cart.setAmount(12);
@@ -69,8 +67,11 @@ public class CartShop {
     }
 
     @RequestMapping(value = "/cart")
-    public String Cart() {
-        return "cart";
+    public ModelAndView Cart() {
+        Cookie[] cookies = request.getCookies();
+        ModelMap model=new ModelMap();
+        model.put("cookies",cookies);
+        return new ModelAndView("cartok", model);
     }
 
     @RequestMapping(value = "/removec")

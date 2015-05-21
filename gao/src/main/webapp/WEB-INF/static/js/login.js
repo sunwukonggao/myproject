@@ -45,7 +45,7 @@ $(document).ready(
                         }
                     },
                     error: function () {
-                        alert("error!");
+                        alert("系统繁忙请稍后再试!");
                     }
                 });
             });
