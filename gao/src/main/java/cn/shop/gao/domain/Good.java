@@ -1,11 +1,8 @@
 package cn.shop.gao.domain;
 
-import org.springframework.stereotype.Repository;
-
 /**
  * Created by gaojc on 2015/5/6.
  */
-@Repository("good")
 public class Good {
     private Integer id;
     private Integer good_id;

@@ -1,11 +1,8 @@
 package cn.shop.gao.domain;
 
-import org.springframework.stereotype.Repository;
-
 /**
  * Created by gaojc on 2015/4/24.
  */
-@Repository("group")
 public class Group {
     private Integer id;
     private String group_name;

@@ -1,10 +1,7 @@
 package cn.shop.gao.domain;
 
-import org.springframework.stereotype.Repository;
-
 import java.io.Serializable;
 
-@Repository("user")
 public class User implements Serializable {
     private static final long serialVersionUID = 2L;
     private Integer id;

@@ -1,11 +1,8 @@
 package cn.shop.gao.domain;
 
-import org.springframework.stereotype.Repository;
-
 /**
  * Created by gaojc on 2015/5/6.
  */
-@Repository("cart")
 public class Cart {
     private Integer id;
     private Integer user_id;
