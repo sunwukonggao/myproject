@@ -15,6 +15,8 @@ public class User implements Serializable {
     private Integer group_id;
     private Integer academe_id;
     private String captcha;
+    private String right_content;
+
     public String getCaptcha() {
         return captcha;
     }
@@ -22,11 +24,6 @@ public class User implements Serializable {
     public void setCaptcha(String captcha) {
         this.captcha = captcha;
     }
-
-
-
-
-    private String right_content;
 
     public Integer getId() {
         return id;
