@@ -7,6 +7,7 @@
           <element id="module-output" name="gao" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.octo.captcha:jcaptcha-all:1.0-RC6" />
           <element id="library" level="project" name="Maven: org.apache.velocity:velocity-tools:2.0" />
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.7.0" />
           <element id="library" level="project" name="Maven: commons-digester:commons-digester:1.8" />

@@ -38,6 +38,9 @@
                             <input pe="text" id="name" name="user_id" class="span12"/>
                             <label>密码</label>
                             <input id="password" name="passwd" type="password" class="span12"/>
+                            <label>验证码</label>
+                            <input type="text" id="captcha" name="captcha"  maxlength="4" class="span12" />
+                            <img src="captcha" onclick="this.src='captcha?d='+new Date().getTime()"/>
                             <input type="button" id="Submitbtn" class="btn btn-primary pull-right" value="提交"/>
                             #set($fail=$requset.getAttribute("fail")) $!fail
                             <label class="remember-me"><input type="checkbox">记住我</label>

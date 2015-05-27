@@ -7,6 +7,7 @@ import cn.shop.gao.domain.User;
 import cn.shop.gao.service.GoodService;
 import cn.shop.gao.service.UserService;
 import cn.shop.gao.tools.LoginAjax;
+import com.octo.captcha.service.image.ImageCaptchaService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,7 +34,8 @@ public class Login {
     private UserService userService;
     private GoodService goodService;
     private HttpServletRequest request;
-
+    @Autowired
+    private ImageCaptchaService imageCaptchaService;
 
     public GoodService getGoodService() {
         return goodService;
@@ -83,29 +85,38 @@ public class Login {
     @ResponseBody
     public LoginAjax loginCheck(User user, HttpServletResponse response) {
         try {
-            if (!checkName(user.getUser_id()) || user.getUser_id() == "") {
-                loginAjax.setIslogin("false");
-                return loginAjax;
-            } else {
-                User userResult = userService.getUser(user);
-                if (userResult != null && userResult.getPasswd().equals(user.getPasswd())) {
-                    peristShoppingCartWhenUserLogin(userResult, response);
-                    request.getSession().setAttribute("right", userService.getUserRight(userResult.getId()));
-                    request.getSession().setAttribute("user_id", userResult.getUser_id());
-                    request.getSession().setAttribute("name", userResult.getName());
-                    request.getSession().setAttribute("user_group", userResult.getGroup_id());
-                    loginAjax.setIslogin("true");
-                    loginAjax.setUser(userResult);
-                    logger.info("用户" + userResult.getUser_id()
-                            + "登陆登陆成功，来自"
-                            + request.getRemoteAddr());
-                } else {
+            Boolean isResponseCorrect = imageCaptchaService.validateResponseForID(request.getSession().getId(), user.getCaptcha());
+            if (isResponseCorrect) {
+                if (!checkName(user.getUser_id()) || user.getUser_id() == "") {
                     loginAjax.setIslogin("false");
-                    logger.error("用户" + user.getUser_id()
-                            + "尝试登陆失败，来自"
-                            + request.getRemoteAddr());
-                }
+                    return loginAjax;
+                } else {
+                    User userResult = userService.getUser(user);
+                    if (userResult != null && userResult.getPasswd().equals(user.getPasswd())) {
+                        peristShoppingCartWhenUserLogin(userResult, response);
+                        request.getSession().setAttribute("right", userService.getUserRight(userResult.getId()));
+                        request.getSession().setAttribute("user_id", userResult.getUser_id());
+                        request.getSession().setAttribute("name", userResult.getName());
+                        request.getSession().setAttribute("user_group", userResult.getGroup_id());
+                        loginAjax.setIslogin("true");
+                        loginAjax.setUser(userResult);
+                        logger.info("用户" + userResult.getUser_id()
+                                + "登陆登陆成功，来自"
+                                + request.getRemoteAddr());
+                    } else {
+                        loginAjax.setIslogin("false");
+                        logger.error("用户" + user.getUser_id()
+                                + "尝试登陆失败，来自"
+                                + request.getRemoteAddr());
+                    }
 
+                    return loginAjax;
+                }
+            } else {
+                loginAjax.setIslogin("false");
+                logger.error("用户" + user.getUser_id()
+                        + "尝试登陆失败，来自"
+                        + request.getRemoteAddr());
                 return loginAjax;
             }
         } catch (Exception e) {

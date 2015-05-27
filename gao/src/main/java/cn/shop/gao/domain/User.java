@@ -14,6 +14,16 @@ public class User implements Serializable {
     private Integer birth;
     private Integer group_id;
     private Integer academe_id;
+    private String captcha;
+    public String getCaptcha() {
+        return captcha;
+    }
+
+    public void setCaptcha(String captcha) {
+        this.captcha = captcha;
+    }
+
+
 
 
     private String right_content;
