@@ -11,6 +11,7 @@ public class LoginAjax {
     private String islogin;
     private String toUrl;
     private User user;
+
     public String getToUrl() {
         return toUrl;
     }
@@ -18,6 +19,7 @@ public class LoginAjax {
     public void setToUrl(String toUrl) {
         this.toUrl = toUrl;
     }
+
     public String getIslogin() {
         return islogin;
     }

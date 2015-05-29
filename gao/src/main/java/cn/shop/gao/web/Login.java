@@ -101,14 +101,12 @@ public class Login {
                         request.getSession().setAttribute("user_group", userResult.getGroup_id());
                         loginAjax.setIslogin("true");
                         loginAjax.setUser(userResult);
-                        String toUrl = (String)request.getSession().getAttribute("toUrl");
+                        String toUrl = (String) request.getSession().getAttribute("toUrl");
                         request.getSession().removeAttribute("toUrl");
-                        if(StringUtils.isEmpty(toUrl)){
+                        if (StringUtils.isEmpty(toUrl)) {
 
                             loginAjax.setToUrl("index");
-                        }
-                        else
-                        {
+                        } else {
                             loginAjax.setToUrl(toUrl);
                         }
                         logger.info("用户" + userResult.getUser_id()
