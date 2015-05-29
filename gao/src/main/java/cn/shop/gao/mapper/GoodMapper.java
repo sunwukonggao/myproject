@@ -10,6 +10,10 @@ import java.util.List;
 public interface GoodMapper extends SqlMapper {
     public Good findGood(Integer id);
 
+    public Integer countGood();
+
     public List<Good> findAllGood();
+
+    public List<Good> findPageGood(Integer startIndex, Integer pageSize);
 
 }

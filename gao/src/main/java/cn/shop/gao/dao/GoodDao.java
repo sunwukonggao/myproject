@@ -10,7 +10,11 @@ import java.util.List;
 public interface GoodDao {
     public Good findGood(Integer id);
 
+    public List<Good> findPageGood(Integer pageNo, Integer pageSize);
+
     public List<Good> findAllGood();
+
+    public Integer countGood();
 
 
 }

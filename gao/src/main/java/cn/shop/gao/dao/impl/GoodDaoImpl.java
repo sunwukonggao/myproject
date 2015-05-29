@@ -29,8 +29,16 @@ public class GoodDaoImpl implements GoodDao {
         return goodMapper.findGood(id);
     }
 
+    public List<Good> findPageGood(Integer pageNo, Integer pageSize) {
+        return goodMapper.findPageGood(pageNo, pageSize);
+    }
+
     public List<Good> findAllGood() {
         return goodMapper.findAllGood();
+    }
+
+    public Integer countGood() {
+        return goodMapper.countGood();
     }
 
 

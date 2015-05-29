@@ -11,13 +11,14 @@ public class Page implements Serializable {
 
     private static int DEFAULT_PAGE_SIZE = 20;
 
-    private int pageSize = 10; // 每页的记录数
+    private int pageSize = 3; // 每页的记录数
 
     private long start; // 当前页第一条数据在List中的位置,从0开始
 
     private List data; // 当前页中存放的记录,类型一般为List
 
     private long totalCount; // 总记录数
+
 
     /**
      * 构造方法，只构造空页.
@@ -97,19 +98,20 @@ public class Page implements Serializable {
      */
     public long getCurrentPageNo() {
         return start / pageSize + 1;
+
     }
 
     /**
      * 该页是否有下一页.
      */
-    public boolean isHasNextPage() {
+    public boolean getisHasNextPage() {
         return this.getCurrentPageNo() < this.getTotalPageCount();
     }
 
     /**
      * 该页是否有上一页.
      */
-    public boolean isHasPreviousPage() {
+    public boolean getisHasPreviousPage() {
         return this.getCurrentPageNo() > 1;
     }
 }

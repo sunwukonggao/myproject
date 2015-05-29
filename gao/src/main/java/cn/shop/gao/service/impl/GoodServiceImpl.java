@@ -6,6 +6,7 @@ import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
 import cn.shop.gao.domain.User;
 import cn.shop.gao.service.GoodService;
+import cn.shop.gao.tools.Page;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -61,6 +62,16 @@ public class GoodServiceImpl implements GoodService {
     public void updateCart(Cart cart) {
         cartDao.updateCart(cart);
 
+    }
+
+    public Page getPagedGoods(Integer pageNo, Integer pageSize) {
+        long totalCount = goodDao.countGood();
+        if (totalCount < 1)
+            return new Page();
+        // 实际查询返回分页对象
+        int startIndex = Page.getStartOfPage(pageNo, pageSize);
+        List list = goodDao.findPageGood(startIndex, pageSize);
+        return new Page(startIndex, totalCount, pageSize, list);
     }
 
     public void saveCart(Cart cart) {

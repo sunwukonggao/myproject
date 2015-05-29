@@ -2,12 +2,14 @@ package cn.shop.gao.web;
 
 import cn.shop.gao.domain.Cart;
 import cn.shop.gao.service.GoodService;
+import cn.shop.gao.tools.Page;
 import cn.shop.gao.tools.SessionHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -90,5 +92,15 @@ public class CartShop {
             }
         }
         return "redirect:/cart";
+    }
+
+    @RequestMapping(value = "/goods/page/{pageNo}", method = RequestMethod.GET)
+    public ModelAndView listBoardTopics(@PathVariable("pageNo") Integer pageNo) {
+        ModelAndView view = new ModelAndView();
+        pageNo = pageNo == null ? 1 : pageNo;
+        Page pagedGoods = goodService.getPagedGoods(pageNo, 3);
+        view.addObject("pagedGoods", pagedGoods);
+        view.setViewName("/listGoods");
+        return view;
     }
 }

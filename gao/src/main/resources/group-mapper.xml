@@ -15,7 +15,9 @@
 
 
 
+
 			select right_content from shop_group where id=#{id}
+
 
 
 
