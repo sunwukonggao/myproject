@@ -1,6 +1,6 @@
 package cn.shop.gao.web;
 
-import cn.shop.gao.annotation.IsLogin;
+import cn.shop.gao.annotation.LoginPage;
 import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
 import cn.shop.gao.domain.User;
@@ -11,6 +11,7 @@ import com.octo.captcha.service.image.ImageCaptchaService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -73,13 +74,13 @@ public class Login {
         this.userService = userService;
     }
 
-    @IsLogin
+    @LoginPage
     @RequestMapping(value = "/login")
     public ModelAndView login() {
         return new ModelAndView("login");
     }
 
-    @IsLogin
+    @LoginPage
     @SuppressWarnings("rawtypes")
     @RequestMapping(value = "/checklogin", method = RequestMethod.POST)
     @ResponseBody
@@ -100,6 +101,16 @@ public class Login {
                         request.getSession().setAttribute("user_group", userResult.getGroup_id());
                         loginAjax.setIslogin("true");
                         loginAjax.setUser(userResult);
+                        String toUrl = (String)request.getSession().getAttribute("toUrl");
+                        request.getSession().removeAttribute("toUrl");
+                        if(StringUtils.isEmpty(toUrl)){
+
+                            loginAjax.setToUrl("index");
+                        }
+                        else
+                        {
+                            loginAjax.setToUrl(toUrl);
+                        }
                         logger.info("用户" + userResult.getUser_id()
                                 + "登陆登陆成功，来自"
                                 + request.getRemoteAddr());

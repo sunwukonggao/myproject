@@ -10,6 +10,6 @@ import java.lang.annotation.*;
 @Inherited
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface IsLogin {
+public @interface LoginPage {
     boolean validate() default true;
 }

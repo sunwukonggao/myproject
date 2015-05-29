@@ -16,7 +16,6 @@ public class QeueInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (i < 2) {
             i++;
-            System.out.println("preHandle  " + i);
             return true;
         } else {
             request.getRequestDispatcher("login").forward(request, response);
@@ -26,6 +25,5 @@ public class QeueInterceptor extends HandlerInterceptorAdapter {
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         i--;
-        System.out.println("postHandle  " + i);
     }
 }

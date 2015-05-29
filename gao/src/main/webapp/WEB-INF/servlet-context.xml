@@ -19,8 +19,8 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/login"/>
-            <!-- 如果不定义 mvc:mapping path 将拦截所有的URL请求 -->
-            <bean class="cn.shop.gao.myinterceptor.AuthInterceptor"/>
+            <!-- 拦截直接访问login页面 -->
+            <bean class="cn.shop.gao.myinterceptor.LoginPageAuthInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/admin/*"/>
