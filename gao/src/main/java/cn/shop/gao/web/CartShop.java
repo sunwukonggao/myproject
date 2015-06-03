@@ -44,12 +44,12 @@ public class CartShop {
         this.goodService = goodService;
     }
 
-    @RequestMapping(value = "/goods")
+   /* @RequestMapping(value = "/goods")
     public ModelAndView showAllGood() {
         ModelMap model = new ModelMap();
         model.put("goods", goodService.getAllGood());
         return new ModelAndView("good", model);
-    }
+    }*/
 
     @RequestMapping(value = "/add/{good_id}")
     public String addCart(@PathVariable("good_id") Integer good_id, HttpServletResponse response) {
@@ -94,7 +94,7 @@ public class CartShop {
         return "redirect:/cart";
     }
 
-    @RequestMapping(value = "/goods/page/{pageNo}", method = RequestMethod.GET)
+    @RequestMapping(value = "/goods/{pageNo}", method = RequestMethod.GET)
     public ModelAndView listBoardTopics(@PathVariable("pageNo") Integer pageNo) {
         ModelAndView view = new ModelAndView();
         pageNo = pageNo == null ? 1 : pageNo;
@@ -102,5 +102,10 @@ public class CartShop {
         view.addObject("pagedGoods", pagedGoods);
         view.setViewName("/listGoods");
         return view;
+    }
+
+    @RequestMapping(value = "/goods", method = RequestMethod.GET)
+    public String listBoardTopicsNoPage() {
+        return "redirect:/goods/1";
     }
 }
