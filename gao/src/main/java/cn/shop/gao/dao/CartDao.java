@@ -4,15 +4,19 @@ import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
 import cn.shop.gao.domain.User;
 
+import java.util.List;
+
 /**
  * Created by gaojc on 2015/5/6.
  */
 public interface CartDao {
-    public Cart findByUserAndGood(User user, Good good);
+    public Cart findByUserAndGood(Integer id, Good good);
 
     public void updateCart(Cart cart);
 
     public void saveCart(Cart cart);
 
-    public Boolean checkCart(User user, Good good);
+    public Boolean checkCart(Integer id, Good good);
+
+    public List<Cart> findByUser(Integer id);
 }

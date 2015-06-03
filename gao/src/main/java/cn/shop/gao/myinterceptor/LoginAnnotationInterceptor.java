@@ -32,7 +32,13 @@ public class LoginAnnotationInterceptor extends HandlerInterceptorAdapter {
             // 需要登录
             if (login.value() == ResultTypeEnum.page) {
                 //采用传统页面进行登录提示
-                request.getSession().setAttribute("toUrl", request.getRequestURI() + "?" + request.getQueryString());
+                if(request.getQueryString()!=null) {
+                    request.getSession().setAttribute("toUrl", request.getRequestURI() + "?" + request.getQueryString());
+                }
+                else
+                {
+                    request.getSession().setAttribute("toUrl", request.getRequestURI());
+                }
                 response.sendRedirect("login");
                 // request.getRequestDispatcher("login").forward(request, response);
             } else if (login.value() == ResultTypeEnum.json) {

@@ -4,6 +4,8 @@ import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
 import cn.shop.gao.domain.User;
 
+import java.util.List;
+
 /**
  * Created by gaojc on 2015/5/6.
  */
@@ -16,4 +18,6 @@ public interface CartMapper extends SqlMapper {
     public void saveCart(Cart cart);
 
     public Cart checkCart(Integer user_id, Integer good_id);
+
+    public List<Cart> findByUser(Integer id);
 }

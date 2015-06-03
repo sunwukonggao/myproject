@@ -51,12 +51,12 @@ public class GoodServiceImpl implements GoodService {
         return goodDao.findAllGood();
     }
 
-    public Boolean isHaveCart(User user, Good good) {
-        return cartDao.checkCart(user, good);
+    public Boolean isHaveCart(Integer id, Good good) {
+        return cartDao.checkCart(id, good);
     }
 
-    public Cart getByUserAndGood(User user, Good good) {
-        return cartDao.findByUserAndGood(user, good);
+    public Cart getByUserAndGood(Integer id, Good good) {
+        return cartDao.findByUserAndGood(id, good);
     }
 
     public void updateCart(Cart cart) {
@@ -77,5 +77,10 @@ public class GoodServiceImpl implements GoodService {
     public void saveCart(Cart cart) {
         cartDao.saveCart(cart);
 
+    }
+
+    public List<Cart> findByUser(Integer id)
+    {
+        return cartDao.findByUser(id);
     }
 }

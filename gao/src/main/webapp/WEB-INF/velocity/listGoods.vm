@@ -20,7 +20,7 @@
         <tr>
             <td align="center">${good.good_id}</td>
             <td align="center">${good.good_name}</td>
-            <td align="center"><a href="add/${good.good_id}">购买</a></td>
+            <td align="center"><a href="/gao/add/${good.good_id}">购买</a></td>
         </tr>
     #end
 </table>

@@ -8,6 +8,7 @@ import cn.shop.gao.mapper.CartMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by gaojc on 2015/5/6.
@@ -25,8 +26,8 @@ public class CartDaoImpl implements CartDao {
         this.cartMapper = cartMapper;
     }
 
-    public Cart findByUserAndGood(User user, Good good) {
-        return cartMapper.checkCart(user.getId(), good.getGood_id());
+    public Cart findByUserAndGood(Integer id, Good good) {
+        return cartMapper.checkCart(id, good.getGood_id());
     }
 
     public void updateCart(Cart cart) {
@@ -39,11 +40,15 @@ public class CartDaoImpl implements CartDao {
 
     }
 
-    public Boolean checkCart(User user, Good good) {
-        if (cartMapper.checkCart(user.getId(), good.getGood_id()) != null)
+    public Boolean checkCart(Integer id, Good good) {
+        if (cartMapper.checkCart(id, good.getGood_id()) != null)
             return true;
         else
             return false;
     }
 
+    public List<Cart> findByUser(Integer id)
+    {
+        return cartMapper.findByUser(id);
+    }
 }

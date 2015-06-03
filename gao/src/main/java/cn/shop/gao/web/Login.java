@@ -97,6 +97,7 @@ public class Login {
                         peristShoppingCartWhenUserLogin(userResult, response);
                         request.getSession().setAttribute("right", userService.getUserRight(userResult.getId()));
                         request.getSession().setAttribute("user_id", userResult.getUser_id());
+                        request.getSession().setAttribute("id", userResult.getId());
                         request.getSession().setAttribute("name", userResult.getName());
                         request.getSession().setAttribute("user_group", userResult.getGroup_id());
                         loginAjax.setIslogin("true");
@@ -166,8 +167,8 @@ public class Login {
                         Integer good_id = Integer.valueOf(name.substring(name.lastIndexOf("_") + 1));
                         Good goods = goodService.getGood(good_id);
                         if (null != goods) {
-                            if (goodService.isHaveCart(user, goods)) {
-                                Cart oldShoppingCart = goodService.getByUserAndGood(user, goods);
+                            if (goodService.isHaveCart(user.getId(), goods)) {
+                                Cart oldShoppingCart = goodService.getByUserAndGood(user.getId(), goods);
                                 oldShoppingCart.setAmount(amount);
                                 goodService.updateCart(oldShoppingCart);
                             } else {

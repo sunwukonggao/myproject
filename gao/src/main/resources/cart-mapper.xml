@@ -6,6 +6,7 @@
         <id property="id" column="id"/>
         <result property="good_id" column="good_id"/>
         <result property="user_id" column="user_id"/>
+        <result property="amount" column="amount"/>
     </resultMap>
     <select id="checkCart" resultType="Cart">
         <![CDATA[
@@ -19,6 +20,30 @@
 
 
 			select * from shop_cart where good_id=#{1}  and user_id=#{0}
+
+
+
+
+
+
+
+
+
+
+        ]]>
+    </select>
+    <select id="findByUser" resultMap="cartresultMap">
+        <![CDATA[
+
+
+
+
+
+
+
+
+
+			select * from shop_cart where  user_id=#{0}
 
 
 

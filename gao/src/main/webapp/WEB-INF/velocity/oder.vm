@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>商品交易平台</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th width="100px">商品ID</th>
+        <th width="200px">数量</th>
+    </tr>
+    #foreach ($cart in $carts)
+        <tr>
+            <td align="center">${cart.good_id}</td>
+            <td align="center">${cart.amount}</td>
+        </tr>
+    #end
+    <tr>
+    <td align="center"><a href="pay">提交订单</a></td>
+</tr>
+</table>
+</body>
+</html>

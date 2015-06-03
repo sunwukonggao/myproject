@@ -1,8 +1,10 @@
 package cn.shop.gao.web;
 
 import cn.shop.gao.domain.Cart;
+import cn.shop.gao.domain.Good;
 import cn.shop.gao.service.GoodService;
 import cn.shop.gao.tools.Page;
+import cn.shop.gao.tools.ResultTypeEnum;
 import cn.shop.gao.tools.SessionHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,10 +62,21 @@ public class CartShop {
             cookie.setPath("/");
             response.addCookie(cookie);
         } else {
-            cart.setGood_id(good_id);
-            cart.setUser_id(1);
-            cart.setAmount(12);
-            goodService.saveCart(cart);
+            Good goods = goodService.getGood(good_id);
+            Integer id = (Integer)request.getSession().getAttribute("id");
+            if (null != goods) {
+                if (goodService.isHaveCart(id, goods)) {
+                    Cart oldShoppingCart = goodService.getByUserAndGood(id, goods);
+                    oldShoppingCart.setAmount(12);
+                    goodService.updateCart(oldShoppingCart);
+                } else {
+                    Cart shoppingCartTemp = new Cart();
+                    shoppingCartTemp.setAmount(10);
+                    shoppingCartTemp.setUser_id(id);
+                    shoppingCartTemp.setGood_id(goods.getGood_id());
+                    goodService.saveCart(shoppingCartTemp);
+                }
+            }
         }
         return "redirect:/cart";
     }
@@ -107,5 +120,13 @@ public class CartShop {
     @RequestMapping(value = "/goods", method = RequestMethod.GET)
     public String listBoardTopicsNoPage() {
         return "redirect:/goods/1";
+    }
+
+    @cn.shop.gao.annotation.Login(ResultTypeEnum.page)
+    @RequestMapping(value = "/pay")
+    public ModelAndView Pay() {
+        ModelMap model = new ModelMap();
+        model.put("carts", goodService.findByUser((Integer)request.getSession().getAttribute("id")));
+        return new ModelAndView("oder", model);
     }
 }

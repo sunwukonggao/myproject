@@ -15,13 +15,15 @@ public interface GoodService {
 
     public List<Good> getAllGood();
 
-    public Boolean isHaveCart(User user, Good good);
+    public Boolean isHaveCart(Integer id, Good good);
 
-    public Cart getByUserAndGood(User user, Good good);
+    public Cart getByUserAndGood(Integer id, Good good);
 
     public void updateCart(Cart cart);
 
     public Page getPagedGoods(Integer pageNo, Integer pageSize);
 
     public void saveCart(Cart cart);
+
+    public List<Cart> findByUser(Integer id);
 }
