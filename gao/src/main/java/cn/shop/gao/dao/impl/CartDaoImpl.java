@@ -3,7 +3,6 @@ package cn.shop.gao.dao.impl;
 import cn.shop.gao.dao.CartDao;
 import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
-import cn.shop.gao.domain.User;
 import cn.shop.gao.mapper.CartMapper;
 import org.springframework.stereotype.Repository;
 
@@ -47,8 +46,7 @@ public class CartDaoImpl implements CartDao {
             return false;
     }
 
-    public List<Cart> findByUser(Integer id)
-    {
+    public List<Cart> findByUser(Integer id) {
         return cartMapper.findByUser(id);
     }
 }

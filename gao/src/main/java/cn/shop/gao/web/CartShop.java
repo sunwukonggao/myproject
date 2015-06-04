@@ -1,9 +1,9 @@
 package cn.shop.gao.web;
 
 import cn.shop.gao.annotation.Authority;
+import cn.shop.gao.annotation.Login;
 import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
-import cn.shop.gao.annotation.Login;
 import cn.shop.gao.service.GoodService;
 import cn.shop.gao.tools.AuthorityType;
 import cn.shop.gao.tools.Page;
@@ -65,7 +65,7 @@ public class CartShop {
             response.addCookie(cookie);
         } else {
             Good goods = goodService.getGood(good_id);
-            Integer id = (Integer)request.getSession().getAttribute("id");
+            Integer id = (Integer) request.getSession().getAttribute("id");
             if (null != goods) {
                 if (goodService.isHaveCart(id, goods)) {
                     Cart oldShoppingCart = goodService.getByUserAndGood(id, goods);
@@ -124,20 +124,21 @@ public class CartShop {
         return "redirect:/goods/1";
     }
 
-    @Authority(authorityTypes=AuthorityType.SALES_ORDER_CREATE)
+    @Authority(authorityTypes = AuthorityType.SALES_ORDER_CREATE)
     @Login(ResultTypeEnum.page)
     @RequestMapping(value = "/pay")
     public ModelAndView pay() {
         ModelMap model = new ModelMap();
-        model.put("carts", goodService.findByUser((Integer)request.getSession().getAttribute("id")));
+        model.put("carts", goodService.findByUser((Integer) request.getSession().getAttribute("id")));
         return new ModelAndView("oder", model);
     }
-    @Authority(authorityTypes=AuthorityType.SALES_ORDER_CREATE)
+
+    @Authority(authorityTypes = AuthorityType.SALES_ORDER_CREATE)
     @Login(ResultTypeEnum.page)
     @RequestMapping(value = "/oder")
     public ModelAndView oder() {
         ModelMap model = new ModelMap();
-        model.put("carts", goodService.findByUser((Integer)request.getSession().getAttribute("id")));
+        model.put("carts", goodService.findByUser((Integer) request.getSession().getAttribute("id")));
         return new ModelAndView("oder", model);
     }
 }

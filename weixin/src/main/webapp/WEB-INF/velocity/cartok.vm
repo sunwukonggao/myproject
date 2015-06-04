@@ -16,9 +16,9 @@
         </tr>
     #end
     <tr>
-    <td align="center"><a href="pay">结算</a></td>
-    <td align="center"><a href="goods">继续购物</a></td>
-</tr>
+        <td align="center"><a href="pay">结算</a></td>
+        <td align="center"><a href="goods">继续购物</a></td>
+    </tr>
 </table>
 </body>
 </html>

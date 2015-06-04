@@ -2,7 +2,6 @@ package cn.shop.gao.service;
 
 import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
-import cn.shop.gao.domain.User;
 import cn.shop.gao.tools.Page;
 
 import java.util.List;

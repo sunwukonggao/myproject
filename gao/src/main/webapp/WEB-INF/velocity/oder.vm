@@ -5,21 +5,21 @@
 </head>
 <body>
 <form id="formBt" action="">
-<table border="1">
-    <tr>
-        <th width="100px">商品ID</th>
-        <th width="200px">数量</th>
-    </tr>
-    #foreach ($cart in $carts)
+    <table border="1">
         <tr>
-            <td> <input pe="text" id="good_id" name="good_id" value=${cart.good_id} readOnly="true" /> </td>
-            <td> <input pe="text" id="amount" name="amount" value=${cart.amount} readOnly="true" /> </td>
+            <th width="100px">商品ID</th>
+            <th width="200px">数量</th>
         </tr>
-    #end
-    <tr>
-    <td align="center"><a href="pay">提交订单</a></td>
-</tr>
-</table>
-    </form>
+        #foreach ($cart in $carts)
+            <tr>
+                <td><input pe="text" id="good_id" name="good_id" value=${cart.good_id} readOnly="true"/></td>
+                <td><input pe="text" id="amount" name="amount" value=${cart.amount} readOnly="true"/></td>
+            </tr>
+        #end
+        <tr>
+            <td align="center"><a href="pay">提交订单</a></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

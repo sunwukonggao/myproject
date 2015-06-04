@@ -4,7 +4,6 @@ import cn.shop.gao.dao.CartDao;
 import cn.shop.gao.dao.GoodDao;
 import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
-import cn.shop.gao.domain.User;
 import cn.shop.gao.service.GoodService;
 import cn.shop.gao.tools.Page;
 import org.springframework.stereotype.Service;
@@ -79,8 +78,7 @@ public class GoodServiceImpl implements GoodService {
 
     }
 
-    public List<Cart> findByUser(Integer id)
-    {
+    public List<Cart> findByUser(Integer id) {
         return cartDao.findByUser(id);
     }
 }

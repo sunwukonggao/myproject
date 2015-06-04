@@ -31,11 +31,9 @@ public class LoginAnnotationInterceptor extends HandlerInterceptorAdapter {
             // 需要登录
             if (login.value() == ResultTypeEnum.page) {
                 //采用传统页面进行登录提示
-                if(request.getQueryString()!=null) {
+                if (request.getQueryString() != null) {
                     request.getSession().setAttribute("toUrl", request.getRequestURI() + "?" + request.getQueryString());
-                }
-                else
-                {
+                } else {
                     request.getSession().setAttribute("toUrl", request.getRequestURI());
                 }
                 response.sendRedirect("login");
