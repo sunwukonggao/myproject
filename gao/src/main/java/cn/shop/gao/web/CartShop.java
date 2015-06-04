@@ -1,11 +1,13 @@
 package cn.shop.gao.web;
 
+import cn.shop.gao.annotation.Authority;
 import cn.shop.gao.domain.Cart;
 import cn.shop.gao.domain.Good;
+import cn.shop.gao.annotation.Login;
 import cn.shop.gao.service.GoodService;
+import cn.shop.gao.tools.AuthorityType;
 import cn.shop.gao.tools.Page;
 import cn.shop.gao.tools.ResultTypeEnum;
-import cn.shop.gao.tools.SessionHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -56,7 +58,7 @@ public class CartShop {
     @RequestMapping(value = "/add/{good_id}")
     public String addCart(@PathVariable("good_id") Integer good_id, HttpServletResponse response) {
         Cart cart = new Cart();
-        String user = (String) request.getSession().getAttribute(SessionHelper.UserHandler);
+        String user = (String) request.getSession().getAttribute("user_id");
         if (null == user) {
             Cookie cookie = new Cookie("beforeLoginCookie_" + good_id, "10");
             cookie.setPath("/");
@@ -122,9 +124,18 @@ public class CartShop {
         return "redirect:/goods/1";
     }
 
-    @cn.shop.gao.annotation.Login(ResultTypeEnum.page)
+    @Authority(authorityTypes=AuthorityType.SALES_ORDER_CREATE)
+    @Login(ResultTypeEnum.page)
     @RequestMapping(value = "/pay")
-    public ModelAndView Pay() {
+    public ModelAndView pay() {
+        ModelMap model = new ModelMap();
+        model.put("carts", goodService.findByUser((Integer)request.getSession().getAttribute("id")));
+        return new ModelAndView("oder", model);
+    }
+    @Authority(authorityTypes=AuthorityType.SALES_ORDER_CREATE)
+    @Login(ResultTypeEnum.page)
+    @RequestMapping(value = "/oder")
+    public ModelAndView oder() {
         ModelMap model = new ModelMap();
         model.put("carts", goodService.findByUser((Integer)request.getSession().getAttribute("id")));
         return new ModelAndView("oder", model);

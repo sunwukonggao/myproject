@@ -1,11 +1,9 @@
 package cn.shop.gao.myinterceptor;
 
 import cn.shop.gao.annotation.Authority;
-import cn.shop.gao.domain.User;
 import cn.shop.gao.tools.AuthorityHelper;
 import cn.shop.gao.tools.AuthorityType;
 import cn.shop.gao.tools.ResultTypeEnum;
-import cn.shop.gao.tools.SessionHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.method.HandlerMethod;
@@ -33,11 +31,10 @@ public class AuthorityAnnotationInterceptor extends HandlerInterceptorAdapter {
         }
 
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute(SessionHelper.UserHandler);
         boolean aflag = false;
 
         for (AuthorityType authorityType : authority.authorityTypes()) {
-            if (AuthorityHelper.hasAuthority(authorityType.getIndex(), user.getRight_content()) == true) {
+            if (AuthorityHelper.hasAuthority(authorityType.getIndex(), session.getAttribute("right").toString()) == true) {
                 aflag = true;
                 break;
             }

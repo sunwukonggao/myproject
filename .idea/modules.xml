@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/gao/gao.iml" filepath="$PROJECT_DIR$/gao/gao.iml" />
       <module fileurl="file://$PROJECT_DIR$/myproject.iml" filepath="$PROJECT_DIR$/myproject.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/weixin/weixin.iml" filepath="$PROJECT_DIR$/weixin/weixin.iml" />
     </modules>
   </component>
 </project>

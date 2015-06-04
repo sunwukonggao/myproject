@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>商品交易平台</title>
+</head>
+<body>
+<!--
+<div>
+    <table id="gridTable"></table>
+    <div id="gridPager"></div>
+</div>
+-->
+<table border="1">
+    <tr>
+        <th width="100px">商品ID</th>
+        <th width="200px">用户名</th>
+        <th width="200px">添加购物车</th>
+    </tr>
+    #foreach ($good in $pagedGoods.result)
+        <tr>
+            <td align="center">${good.good_id}</td>
+            <td align="center">${good.good_name}</td>
+            <td align="center"><a href="/gao/add/${good.good_id}">购买</a></td>
+        </tr>
+    #end
+</table>
+<div style="font:12px;background-color:#DDDDDD">
+    共$pagedGoods.totalPageCount页，第$pagedGoods.CurrentPageNo页
+    #if ($pagedGoods.CurrentPageNo <= 1)
+        首页&nbsp;&nbsp;
+    #end
+    #if ($pagedGoods.CurrentPageNo >1)
+        <a href="1">首页</a>&nbsp;&nbsp;
+    #end
+    #if ($pagedGoods.isHasPreviousPage)
+        <a href=#set($id=$pagedGoods.CurrentPageNo - 1)$id>上一页</a>&nbsp;&nbsp;
+    #end
+    #if (!$pagedGoods.isHasPreviousPage)
+        上一页&nbsp;&nbsp;
+    #end
+    #if  ($pagedGoods.isHasNextPage)
+        <a href=#set($id=$pagedGoods.CurrentPageNo + 1)$id>下一页</a>&nbsp;&nbsp;
+    #end
+    #if (!$pagedGoods.isHasNextPage)
+        下一页&nbsp;&nbsp;
+    #end
+    #if ($pagedGoods.CurrentPageNo >= $pagedGoods.totalPageCount)
+        末页&nbsp;&nbsp;
+    #end
+    #if ($pagedGoods.CurrentPageNo < $pagedGoods.totalPageCount)
+        <a href="$pagedGoods.totalPageCount">末页</a>&nbsp;&nbsp;
+    #end
+</div>
+</body>
+</html>

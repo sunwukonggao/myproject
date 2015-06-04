@@ -20,4 +20,5 @@ public class Index {
     public ModelAndView index1() {
         return new ModelAndView("index");
     }
+
 }

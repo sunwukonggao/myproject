@@ -2,7 +2,6 @@ package cn.shop.gao.myinterceptor;
 
 import cn.shop.gao.annotation.Login;
 import cn.shop.gao.tools.ResultTypeEnum;
-import cn.shop.gao.tools.SessionHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.method.HandlerMethod;
@@ -26,7 +25,7 @@ public class LoginAnnotationInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
         HttpSession session = request.getSession();
-        String user = (String) session.getAttribute(SessionHelper.UserHandler);
+        String user = (String) session.getAttribute("user_id");
 
         if (null == user) {
             // 需要登录

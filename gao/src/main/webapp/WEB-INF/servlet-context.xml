@@ -37,6 +37,7 @@
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/admin"/>
+            <mvc:mapping path="/pay"/>
             <!-- 如果不定义 mvc:mapping path 将拦截所有的URL请求 -->
             <bean class="cn.shop.gao.myinterceptor.AuthorityAnnotationInterceptor"/>
         </mvc:interceptor>
@@ -69,8 +70,7 @@
     </bean>
 
     <!-- 异常解析器 -->
-    <bean id="simpleMappingExceptionResolver"
-          class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
                 <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">common/fileerror

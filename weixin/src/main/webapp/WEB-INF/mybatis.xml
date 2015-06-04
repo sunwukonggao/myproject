@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="cn.shop.gao.domain.User" alias="User"/>
+        <typeAlias type="cn.shop.gao.domain.UserGroup" alias="UserGroup"/>
+        <typeAlias type="cn.shop.gao.domain.Group" alias="Gropu"/>
+        <typeAlias type="cn.shop.gao.domain.Good" alias="Good"/>
+        <typeAlias type="cn.shop.gao.domain.Cart" alias="Cart"/>
+    </typeAliases>
+</configuration>

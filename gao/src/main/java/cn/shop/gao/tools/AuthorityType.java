@@ -12,7 +12,7 @@ public enum AuthorityType {
     private String name;
     private int index;
 
-    private AuthorityType(String name, int index) {
+    AuthorityType(String name, int index) {
         this.name = name;
         this.index = index;
     }
