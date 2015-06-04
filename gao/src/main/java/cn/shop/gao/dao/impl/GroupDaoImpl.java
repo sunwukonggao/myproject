@@ -26,4 +26,8 @@ public class GroupDaoImpl implements GroupDao {
     public String findRight(Integer id) {
         return groupMapper.getRight(id);
     }
+
+    public void updateRight(Integer group_id, String right_content) {
+        groupMapper.updateRight(group_id, right_content);
+    }
 }

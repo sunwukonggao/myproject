@@ -5,4 +5,6 @@ package cn.shop.gao.dao;
  */
 public interface GroupDao {
     public String findRight(Integer id);
+
+    public void updateRight(Integer group_id, String right_content);
 }

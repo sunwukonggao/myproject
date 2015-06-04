@@ -81,4 +81,5 @@ public class GoodServiceImpl implements GoodService {
     public List<Cart> findByUser(Integer id) {
         return cartDao.findByUser(id);
     }
+
 }

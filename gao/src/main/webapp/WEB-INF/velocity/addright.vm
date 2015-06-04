@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>商品交易平台</title>
+</head>
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <ul class="nav pull-right"></ul>
+            <a class="brand" href="index"><span class="first">商品交易</span> <span class="second">平台</span></a>
+        </div>
+    </div>
+</div>
+<body>
+<form id="formBt" action="uright">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="dialog span4">
+                <div class="block">
+                    <div class="block-heading">添加权限</div>
+                    <div class="block-body">
+                        <form>
+                            <label><input name="Right" type="checkbox" value="1"/>创建 </label>
+                            <label><input name="Right" type="checkbox" value="2"/>查看</label>
+                            <label><input name="Right" type="checkbox" value="3"/>修改</label>
+                            <label><input name="Right" type="checkbox" value="4"/>删除</label>
+                            <input type="submit" value="Submit"/>
+
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

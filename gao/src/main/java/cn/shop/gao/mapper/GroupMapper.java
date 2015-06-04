@@ -5,4 +5,6 @@ package cn.shop.gao.mapper;
  */
 public interface GroupMapper extends SqlMapper {
     public String getRight(Integer id);
+
+    public void updateRight(Integer group_id, String right_content);
 }

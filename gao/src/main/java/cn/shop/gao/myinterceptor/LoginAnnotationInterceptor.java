@@ -36,7 +36,7 @@ public class LoginAnnotationInterceptor extends HandlerInterceptorAdapter {
                 } else {
                     request.getSession().setAttribute("toUrl", request.getRequestURI());
                 }
-                response.sendRedirect("login");
+                response.sendRedirect(request.getContextPath() + "/login");
                 // request.getRequestDispatcher("login").forward(request, response);
             } else if (login.value() == ResultTypeEnum.json) {
                 //采用ajax方式的进行登录提示

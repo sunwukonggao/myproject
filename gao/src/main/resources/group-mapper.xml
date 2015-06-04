@@ -17,7 +17,9 @@
 
 
 
+
 			select right_content from shop_group where id=#{id}
+
 
 
 
@@ -29,4 +31,34 @@
 
         ]]>
     </select>
+    <update id="updateRight" parameterType="int">
+        <![CDATA[
+
+
+
+
+
+
+
+
+
+
+
+
+			UPDATE  shop_group SET right_content=#{1} WHERE id=#{0}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ]]>
+    </update>
 </mapper>

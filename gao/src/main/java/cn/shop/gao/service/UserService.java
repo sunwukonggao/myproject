@@ -27,4 +27,5 @@ public interface UserService {
 
     public Map<InetSocketAddress, Map<String, String>> testxm() throws InterruptedException, MemcachedException, TimeoutException;
 
+    public void updateGroupRight(Integer group_id, String right_content);
 }

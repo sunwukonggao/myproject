@@ -160,5 +160,9 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    public void updateGroupRight(Integer group_id, String right_content) {
+        groupDao.updateRight(group_id, right_content);
+    }
 }
 

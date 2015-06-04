@@ -18,7 +18,9 @@
 
 
 
+
 			select * from shop_good limit #{0},#{1}
+
 
 
 
@@ -41,7 +43,9 @@
 
 
 
+
 			select * from shop_good
+
 
 
 
@@ -64,7 +68,9 @@
 
 
 
+
 			select * from shop_good where good_id=#{id}
+
 
 
 
@@ -88,7 +94,9 @@
 
 
 
+
 			SELECT COUNT(1) from shop_good
+
 
 
 

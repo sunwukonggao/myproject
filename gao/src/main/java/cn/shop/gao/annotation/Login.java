@@ -12,5 +12,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Login {
-    ResultTypeEnum value() default ResultTypeEnum.json;
+    ResultTypeEnum value() default ResultTypeEnum.page;
 }
