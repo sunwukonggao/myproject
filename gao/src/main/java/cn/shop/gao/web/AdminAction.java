@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping(value = "/admin")
-public class Admin {
+public class AdminAction {
     private UserService userservice;
 
     public UserService getUserservice() {

@@ -22,7 +22,7 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping("/captcha")
-public class JcaptchaImageCreater {
+public class JcaptchaImageCreaterAction {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 

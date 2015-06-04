@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping(value = "/error")
-public class Error {
+public class ErrorAction {
     @RequestMapping(value = "/404")
     public ModelAndView index1() {
         return new ModelAndView("404");
