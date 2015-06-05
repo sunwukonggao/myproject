@@ -1,6 +1,9 @@
 package cn.gao.weixin.web;
 
 import cn.gao.weixin.tools.WXBizMsgCrypt;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -10,15 +13,15 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.StringReader;
 
-
+@Controller
 public class Program {
 
-    public static void main(String[] args) throws Exception {
-
+    @RequestMapping(value = "/mxml")
+    @ResponseBody
+    public String myxml() throws Exception {
         //
         // 第三方回复公众平台
         //
-
         // 需要加密的明文
         String encodingAesKey = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG";
         String token = "pamtest";
@@ -46,15 +49,13 @@ public class Program {
 
         String format = "<xml><ToUserName><![CDATA[toUser]]></ToUserName><Encrypt><![CDATA[%1$s]]></Encrypt></xml>";
         String fromXML = String.format(format, encrypt);
-
         //
         // 公众平台发送消息给第三方，第三方处理
         //
-
         // 第三方收到公众号平台发送的消息
         String result2 = pc.decryptMsg(msgSignature, timestamp, nonce, fromXML);
         System.out.println("解密后明文: " + result2);
-
+        return result2;
         //pc.verifyUrl(null, null, null, null);
     }
 }
