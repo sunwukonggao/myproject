@@ -8,6 +8,10 @@
     <modules>
         <module>gao</module>
         <module>weixin</module>
+        <module>weixin</module>
+        <module>weixin</module>
+        <module>weixin</module>
+        <module>weixin</module>
     </modules>
     <name>myproject Maven Webapp</name>
     <url>http://maven.apache.org</url>

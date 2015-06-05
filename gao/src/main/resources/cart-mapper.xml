@@ -21,7 +21,9 @@
 
 
 
+
 			select * from shop_cart where good_id=#{1}  and user_id=#{0}
+
 
 
 
@@ -49,7 +51,9 @@
 
 
 
+
 			select * from shop_cart where  user_id=#{0}
+
 
 
 
@@ -78,7 +82,9 @@
 
 
 
+
 			UPDATE  shop_cart SET amount=#{amount} WHERE good_id=#{good_id}  and user_id=#{user_id}
+
 
 
 
@@ -108,7 +114,9 @@
 
 
 
+
 			INSERT INTO shop_cart  (user_id,good_id,amount) VALUES (#{user_id},#{good_id},#{amount})
+
 
 
 
