@@ -12,7 +12,7 @@
     </div>
 </div>
 <body>
-<form id="formBt" action="uright">
+<form id="formBt" action="uright" method="post">
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="dialog span4">

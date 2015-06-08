@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping(value = "/admin")
-public class AdminAction {
+public class AdminController {
     private UserService userservice;
 
     public UserService getUserservice() {

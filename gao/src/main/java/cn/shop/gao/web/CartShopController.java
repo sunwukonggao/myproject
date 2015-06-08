@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by gaojc on 2015/5/6.
  */
 @Controller
-public class CartShopAction {
+public class CartShopController {
     private GoodService goodService;
     private HttpServletRequest request;
 

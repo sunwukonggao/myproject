@@ -28,9 +28,9 @@ import java.util.regex.Pattern;
  * Created by gaojc on 2015/1/29.
  */
 @Controller
-public class LoginAction {
+public class LoginController {
     private static final long serialVersionUID = 1L;
-    static Logger logger = Logger.getLogger(LoginAction.class);
+    static Logger logger = Logger.getLogger(LoginController.class);
     private LoginAjax loginAjax;
     private UserService userService;
     private GoodService goodService;
